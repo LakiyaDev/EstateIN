@@ -28,7 +28,7 @@ export function TestimonialsSection({
       />
       <MobileCarouselSection
         items={testimonials}
-        total={10}
+        total={testimonials.length}
         viewAllHref="#"
         viewAllLabel="View All Testimonials"
         getKey={(item) => item.name}

@@ -55,17 +55,31 @@ export function FeatureQuickCard({
 
 export function FeatureQuickGrid({
   features,
+  layout = "default",
 }: {
   features: { title: string; href: string; icon: FeatureIcon }[];
+  layout?: "default" | "hero";
 }) {
+  if (layout === "hero") {
+    return (
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+        {features.map((feature) => (
+          <FeatureQuickCard
+            key={feature.title}
+            {...feature}
+            variant="standalone"
+          />
+        ))}
+      </div>
+    );
+  }
+
   return (
     <>
-      <div className="overflow-hidden rounded-xl border border-border lg:hidden">
-        <div className="grid grid-cols-2 divide-x divide-y divide-border">
-          {features.map((feature) => (
-            <FeatureQuickCard key={feature.title} {...feature} variant="grid" />
-          ))}
-        </div>
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:hidden">
+        {features.map((feature) => (
+          <FeatureQuickCard key={feature.title} {...feature} variant="standalone" />
+        ))}
       </div>
       <div className="hidden overflow-hidden rounded-xl border border-border lg:grid lg:grid-cols-4 lg:divide-x lg:divide-border">
         {features.map((feature) => (
