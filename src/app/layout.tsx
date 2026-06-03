@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     "Discover your dream property with Estatein. Expert guidance for buying, selling, and managing real estate.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -26,7 +31,7 @@ export default function RootLayout({
       <body className={`${urbanist.variable} antialiased`}>
         <TopBanner />
         <Header />
-        <main>{children}</main>
+        <main className="min-w-0">{children}</main>
         <Footer />
       </body>
     </html>

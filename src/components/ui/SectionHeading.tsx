@@ -1,5 +1,3 @@
-import { Sparkles } from "lucide-react";
-
 type SectionHeadingProps = {
   title: string;
   description?: string;
@@ -10,26 +8,19 @@ type SectionHeadingProps = {
 export function SectionHeading({
   title,
   description,
-  showIcon = true,
+  showIcon: _showIcon = true,
   className = "",
 }: SectionHeadingProps) {
   return (
-    <div className={className}>
-      <div className="flex items-start gap-3">
-        {showIcon && (
-          <Sparkles className="mt-1 h-5 w-5 shrink-0 text-primary" />
-        )}
-        <div>
-          <h2 className="text-2xl font-semibold text-white md:text-3xl lg:text-4xl">
-            {title}
-          </h2>
-          {description && (
-            <p className="mt-3 max-w-3xl text-sm leading-relaxed text-text-muted md:text-base">
-              {description}
-            </p>
-          )}
-        </div>
-      </div>
+    <div className={`min-w-0 ${className}`}>
+      <h2 className="text-xl font-semibold text-white sm:text-2xl md:text-3xl lg:text-4xl">
+        {title}
+      </h2>
+      {description && (
+        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-text-muted sm:mt-3 md:text-base">
+          {description}
+        </p>
+      )}
     </div>
   );
 }

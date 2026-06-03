@@ -17,8 +17,8 @@ const filters = [
 export default function PropertiesPage() {
   return (
     <>
-      <section className="mx-auto max-w-7xl px-4 py-12 lg:px-8 lg:py-16">
-        <h1 className="text-3xl font-semibold text-white md:text-4xl lg:text-5xl">
+      <section className="page-container py-12 lg:py-16">
+        <h1 className="text-2xl font-semibold text-white sm:text-3xl md:text-4xl lg:text-5xl">
           Find Your Dream Property
         </h1>
         <p className="mt-4 max-w-3xl text-sm leading-relaxed text-text-muted md:text-base">
@@ -35,19 +35,19 @@ export default function PropertiesPage() {
           />
           <button
             type="button"
-            className="flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3.5 text-sm font-medium text-white transition hover:bg-primary-hover"
+            className="flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3.5 text-sm font-medium text-white transition hover:bg-primary-hover sm:w-auto"
           >
             <Search className="h-4 w-4" />
             Find Property
           </button>
         </div>
 
-        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-4 -mx-4 flex gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-5">
           {filters.map(({ label, icon: Icon }) => (
             <button
               key={label}
               type="button"
-              className="flex items-center justify-between rounded-lg border border-border bg-surface px-4 py-3 text-sm text-text-secondary transition hover:border-text-muted hover:text-white"
+              className="flex min-h-11 min-w-[11rem] shrink-0 items-center justify-between rounded-lg border border-border bg-surface px-4 py-3 text-sm text-text-secondary transition hover:border-text-muted hover:text-white sm:min-w-0"
             >
               <span className="flex items-center gap-2">
                 <Icon className="h-4 w-4 text-primary" />
@@ -59,7 +59,7 @@ export default function PropertiesPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
+      <section className="page-container py-12">
         <SectionHeading
           title="Discover a World of Possibilities"
           description="Our portfolio of properties is as diverse as your dreams. Explore the categories below to find the perfect property that resonates with your vision of home."
@@ -72,7 +72,7 @@ export default function PropertiesPage() {
         <Pagination current={1} total={10} />
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
+      <section className="page-container py-12">
         <SectionHeading
           title="Let's Make it Happen"
           description="You're one step closer to your dream property. Fill out the form below, and our real estate experts will get back to you with personalized listings."

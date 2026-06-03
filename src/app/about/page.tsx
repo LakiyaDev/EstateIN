@@ -44,10 +44,10 @@ const achievements = [
 export default function AboutPage() {
   return (
     <>
-      <section className="mx-auto max-w-7xl px-4 py-12 lg:px-8 lg:py-16">
+      <section className="page-container py-12 lg:py-16">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div>
-            <h1 className="text-3xl font-semibold text-white md:text-4xl lg:text-5xl">
+            <h1 className="text-2xl font-semibold text-white sm:text-3xl md:text-4xl lg:text-5xl">
               Our Journey
             </h1>
             <p className="mt-4 text-sm leading-relaxed text-text-muted md:text-base">
@@ -56,14 +56,14 @@ export default function AboutPage() {
               platform that transcended the ordinary. Over the years, we&apos;ve
               expanded our reach across the nation.
             </p>
-            <div className="mt-8 grid grid-cols-3 gap-3">
+            <div className="mt-8 grid grid-cols-1 gap-3 min-[400px]:grid-cols-3">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-xl border border-border bg-surface px-3 py-4 text-center"
+                  className="min-w-0 rounded-xl border border-border bg-surface px-4 py-4 min-[400px]:px-3 min-[400px]:text-center"
                 >
-                  <p className="text-lg font-semibold text-white">{stat.value}</p>
-                  <p className="mt-1 text-xs text-text-muted">{stat.label}</p>
+                  <p className="text-lg font-semibold text-white sm:text-xl">{stat.value}</p>
+                  <p className="mt-1 text-xs leading-snug text-text-muted">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -86,7 +86,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
+      <section className="page-container py-12">
         <div className="grid gap-10 lg:grid-cols-2">
           <SectionHeading
             title="Our Values"
@@ -107,7 +107,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="achievements" className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
+      <section id="achievements" className="page-container py-12">
         <SectionHeading
           title="Our Achievements"
           description="Our story is one of continuous growth and evolution. We started as a small team with big dreams, determined to create a real estate platform that transcended the ordinary."
@@ -127,7 +127,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="experience" className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
+      <section id="experience" className="page-container py-12">
         <SectionHeading
           title="Navigating the Estatein Experience"
           description="At Estatein, we've designed a straightforward process to help you find and purchase your dream property with ease. Here's a step-by-step guide to how it all works."
@@ -146,7 +146,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="team" className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
+      <section id="team" className="page-container py-12">
         <SectionHeading
           title="Meet the Estatein Team"
           description="At the heart of our agency is a commitment to providing you with exceptional service and ensuring that your real estate journey is a successful and rewarding one."
@@ -182,7 +182,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="clients" className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
+      <section id="clients" className="page-container py-12">
         <SectionHeading
           title="Our Valued Clients"
           description="At Estatein, we've had the privilege of working with a diverse range of clients across various industries. Here are some of the companies we've partnered with."

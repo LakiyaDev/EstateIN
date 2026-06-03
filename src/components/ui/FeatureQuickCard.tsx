@@ -1,38 +1,77 @@
 import Link from "next/link";
 import {
   ArrowUpRight,
-  BarChart3,
+  Banknote,
   Building2,
   Home,
-  TrendingUp,
+  Sun,
 } from "lucide-react";
+import type { FeatureIcon } from "@/data/content";
+import { cn } from "@/lib/utils";
 
 const icons = {
   home: Home,
-  chart: BarChart3,
+  value: Banknote,
   building: Building2,
-  trending: TrendingUp,
+  invest: Sun,
 };
 
 type FeatureQuickCardProps = {
   title: string;
   href: string;
-  icon: keyof typeof icons;
+  icon: FeatureIcon;
+  variant?: "standalone" | "grid";
 };
 
-export function FeatureQuickCard({ title, href, icon }: FeatureQuickCardProps) {
+export function FeatureQuickCard({
+  title,
+  href,
+  icon,
+  variant = "standalone",
+}: FeatureQuickCardProps) {
   const Icon = icons[icon];
+  const isGrid = variant === "grid";
 
   return (
     <Link
       href={href}
-      className="group relative flex flex-col justify-between rounded-xl border border-border bg-surface p-5 transition hover:border-text-muted"
+      className={cn(
+        "group relative flex min-h-[130px] flex-col items-center justify-between px-4 py-5 text-center transition sm:min-h-[160px] sm:px-5 sm:py-6 lg:min-h-[172px]",
+        isGrid
+          ? "rounded-none border-0 bg-surface hover:bg-surface-elevated/40"
+          : "rounded-xl border border-border bg-surface hover:border-text-muted",
+      )}
     >
-      <ArrowUpRight className="absolute right-4 top-4 h-4 w-4 text-text-muted transition group-hover:text-white" />
-      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/20 text-primary">
-        <Icon className="h-5 w-5" />
+      <ArrowUpRight className="absolute right-3 top-3 h-4 w-4 text-text-muted/70 transition group-hover:text-white sm:right-4 sm:top-4" />
+      <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-white shadow-[0_0_24px_rgba(112,59,247,0.35)] sm:h-12 sm:w-12">
+        <Icon className="h-5 w-5" strokeWidth={1.75} />
       </span>
-      <p className="mt-8 text-sm font-medium text-white">{title}</p>
+      <p className="px-1 text-xs font-medium leading-snug text-white sm:text-sm">
+        {title}
+      </p>
     </Link>
+  );
+}
+
+export function FeatureQuickGrid({
+  features,
+}: {
+  features: { title: string; href: string; icon: FeatureIcon }[];
+}) {
+  return (
+    <>
+      <div className="overflow-hidden rounded-xl border border-border lg:hidden">
+        <div className="grid grid-cols-2 divide-x divide-y divide-border">
+          {features.map((feature) => (
+            <FeatureQuickCard key={feature.title} {...feature} variant="grid" />
+          ))}
+        </div>
+      </div>
+      <div className="hidden overflow-hidden rounded-xl border border-border lg:grid lg:grid-cols-4 lg:divide-x lg:divide-border">
+        {features.map((feature) => (
+          <FeatureQuickCard key={feature.title} {...feature} variant="grid" />
+        ))}
+      </div>
+    </>
   );
 }

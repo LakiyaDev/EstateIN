@@ -60,8 +60,8 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="mx-auto max-w-7xl px-4 py-12 lg:px-8 lg:py-16">
-        <h1 className="text-3xl font-semibold text-white md:text-4xl lg:text-5xl">
+      <section className="page-container py-12 lg:py-16">
+        <h1 className="text-2xl font-semibold text-white sm:text-3xl md:text-4xl lg:text-5xl">
           Get in Touch with Estatein
         </h1>
         <p className="mt-4 max-w-3xl text-sm leading-relaxed text-text-muted md:text-base">
@@ -71,7 +71,7 @@ export default function ContactPage() {
           reality.
         </p>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 gap-4 min-[480px]:grid-cols-2 lg:grid-cols-4">
           {contactCards.map((card) => (
             <Link
               key={card.label}
@@ -87,7 +87,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
+      <section className="page-container py-12">
         <SectionHeading
           title="Let's Connect"
           description="We're excited to connect with you and learn more about your real estate goals. Use the form below to get in touch with our team."
@@ -97,7 +97,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section id="offices" className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
+      <section id="offices" className="page-container py-12">
         <SectionHeading
           title="Discover Our Office Locations"
           description="Estatein is here to serve you across borders and time zones. Our global presence ensures that you receive exceptional service wherever you are."
@@ -150,7 +150,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
+      <section className="page-container py-12">
         <SectionHeading
           title="Explore Estatein's World"
           description="Step inside the world of Estatein, where professionalism meets warmth, and every interaction is a step toward your real estate aspirations."

@@ -10,11 +10,11 @@ export function ContactForm({
   propertyName,
 }: ContactFormProps) {
   const inputClass =
-    "w-full rounded-lg border border-border bg-background px-4 py-3 text-sm text-white placeholder:text-text-muted outline-none transition focus:border-primary";
+    "w-full min-h-11 rounded-lg border border-border bg-background px-4 py-3 text-base text-white placeholder:text-text-muted outline-none transition focus:border-primary sm:text-sm";
 
   return (
     <form
-      className="rounded-xl border border-border bg-surface p-5 md:p-8"
+      className="rounded-xl border border-border bg-surface p-4 sm:p-5 md:p-8"
       onSubmit={(e) => e.preventDefault()}
     >
       <div
@@ -163,7 +163,7 @@ export function ContactForm({
         </label>
         <button
           type="submit"
-          className="rounded-lg bg-primary px-8 py-3 text-sm font-medium text-white transition hover:bg-primary-hover sm:shrink-0"
+          className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-primary px-8 py-3 text-sm font-medium text-white transition hover:bg-primary-hover sm:w-auto sm:shrink-0"
         >
           Send Your Message
         </button>

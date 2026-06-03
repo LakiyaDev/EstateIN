@@ -52,7 +52,7 @@ export default async function PropertyDetailPage({ params }: Props) {
 
   return (
     <>
-      <section className="mx-auto max-w-7xl px-4 py-10 lg:px-8 lg:py-14">
+      <section className="page-container py-10 lg:py-14">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <h1 className="text-2xl font-semibold text-white md:text-3xl lg:text-4xl">
@@ -130,14 +130,14 @@ export default async function PropertyDetailPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-8 lg:px-8">
+      <section className="page-container py-8">
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
             <h2 className="text-xl font-semibold text-white">Description</h2>
             <p className="mt-4 text-sm leading-relaxed text-text-muted">
               {property.description}
             </p>
-            <div className="mt-6 grid grid-cols-3 gap-4">
+            <div className="mt-6 grid grid-cols-1 gap-3 min-[400px]:grid-cols-3 min-[400px]:gap-4">
               <div className="rounded-lg border border-border bg-surface p-4 text-center">
                 <BedDouble className="mx-auto h-5 w-5 text-primary" />
                 <p className="mt-2 text-xs text-text-muted">Bedrooms</p>
@@ -152,7 +152,7 @@ export default async function PropertyDetailPage({ params }: Props) {
                   {String(property.bathrooms).padStart(2, "0")}
                 </p>
               </div>
-              <div className="rounded-lg border border-border bg-surface p-4 text-center">
+              <div className="min-w-0 rounded-lg border border-border bg-surface p-4 text-center">
                 <Maximize2 className="mx-auto h-5 w-5 text-primary" />
                 <p className="mt-2 text-xs text-text-muted">Area</p>
                 <p className="text-sm font-medium text-white">{property.area}</p>
@@ -178,7 +178,7 @@ export default async function PropertyDetailPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
+      <section className="page-container py-12">
         <SectionHeading
           title={`Inquire About ${property.title}`}
           description="Interested in this property? Fill out the form below, and our real estate experts will get back to you with more details."
@@ -189,7 +189,7 @@ export default async function PropertyDetailPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
+      <section className="page-container py-12">
         <SectionHeading
           title="Comprehensive Pricing Details"
           description="At Estatein, transparency is key. We want you to have a clear understanding of the property's pricing and associated costs."
@@ -221,10 +221,10 @@ export default async function PropertyDetailPage({ params }: Props) {
               {additionalFees.map((fee) => (
                 <li
                   key={fee.label}
-                  className="flex justify-between text-sm text-text-muted"
+                  className="flex flex-col gap-1 text-sm text-text-muted min-[400px]:flex-row min-[400px]:justify-between"
                 >
                   <span>{fee.label}</span>
-                  <span className="text-white">{fee.amount}</span>
+                  <span className="font-medium text-white min-[400px]:font-normal">{fee.amount}</span>
                 </li>
               ))}
             </ul>
@@ -240,10 +240,10 @@ export default async function PropertyDetailPage({ params }: Props) {
               {monthlyCosts.map((cost) => (
                 <li
                   key={cost.label}
-                  className="flex justify-between text-sm text-text-muted"
+                  className="flex flex-col gap-1 text-sm text-text-muted min-[400px]:flex-row min-[400px]:justify-between"
                 >
                   <span>{cost.label}</span>
-                  <span className="text-white">{cost.amount}</span>
+                  <span className="font-medium text-white min-[400px]:font-normal">{cost.amount}</span>
                 </li>
               ))}
             </ul>
@@ -261,7 +261,7 @@ export default async function PropertyDetailPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-12 lg:px-8">
+      <section className="page-container py-12">
         <SectionHeading title="Frequently Asked Questions" />
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {faqs.map((faq) => (

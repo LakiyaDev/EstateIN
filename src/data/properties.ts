@@ -86,10 +86,10 @@ export const properties: Property[] = [
     area: "1,600 Square Feet",
     type: "Cottage",
     image:
-      "https://images.unsplash.com/photo-1518781841217-8f162f1e1131?w=800&q=80",
+      "https://images.unsplash.com/photo-1449844908441-8829872d2607?w=800&q=80",
     gallery: [
-      "https://images.unsplash.com/photo-1518781841217-8f162f1e1131?w=600&q=80",
       "https://images.unsplash.com/photo-1449844908441-8829872d2607?w=600&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
     ],
     features: [
       "Stone fireplace in the living room",

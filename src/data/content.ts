@@ -1,4 +1,4 @@
-export type FeatureIcon = "home" | "chart" | "building" | "trending";
+export type FeatureIcon = "home" | "value" | "building" | "invest";
 
 export const heroFeatures: {
   title: string;
@@ -13,7 +13,7 @@ export const heroFeatures: {
   {
     title: "Unlock Property Value",
     href: "/services#unlock-property-value",
-    icon: "chart",
+    icon: "value",
   },
   {
     title: "Effortless Property Management",
@@ -23,7 +23,7 @@ export const heroFeatures: {
   {
     title: "Smart Investments, Informed Decisions",
     href: "/services#smart-investments",
-    icon: "trending",
+    icon: "invest",
   },
 ];
 

@@ -42,7 +42,7 @@ function ServiceCard({
 function WideCtaCard({ title }: { title: string }) {
   return (
     <div
-      className="relative flex flex-col justify-between overflow-hidden rounded-xl border border-border bg-surface p-6 lg:col-span-2 lg:flex-row lg:items-center"
+      className="relative flex flex-col justify-between gap-4 overflow-hidden rounded-xl border border-border bg-surface p-5 sm:p-6 lg:col-span-2 lg:flex-row lg:items-center lg:gap-6"
       style={{
         backgroundImage:
           "radial-gradient(ellipse at top right, rgba(112,59,247,0.15), transparent 60%)",
@@ -57,7 +57,7 @@ function WideCtaCard({ title }: { title: string }) {
       </div>
       <Link
         href="/contact"
-        className="mt-4 inline-flex w-fit rounded-lg border border-border px-5 py-2.5 text-sm text-white transition hover:border-text-muted lg:mt-0"
+        className="inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-border px-5 py-2.5 text-sm text-white transition hover:border-text-muted sm:w-fit lg:mt-0"
       >
         Learn More
       </Link>
@@ -68,8 +68,8 @@ function WideCtaCard({ title }: { title: string }) {
 export default function ServicesPage() {
   return (
     <>
-      <section className="mx-auto max-w-7xl px-4 py-12 lg:px-8 lg:py-16">
-        <h1 className="text-3xl font-semibold text-white md:text-4xl lg:text-5xl">
+      <section className="page-container py-12 lg:py-16">
+        <h1 className="text-2xl font-semibold text-white sm:text-3xl md:text-4xl lg:text-5xl">
           Elevate Your Real Estate Experience
         </h1>
         <p className="mt-4 max-w-3xl text-sm leading-relaxed text-text-muted md:text-base">
@@ -86,7 +86,7 @@ export default function ServicesPage() {
 
       <section
         id="unlock-property-value"
-        className="mx-auto max-w-7xl px-4 py-12 lg:px-8"
+        className="page-container py-12"
       >
         <SectionHeading
           title="Unlock Property Value"
@@ -121,7 +121,7 @@ export default function ServicesPage() {
 
       <section
         id="property-management"
-        className="mx-auto max-w-7xl px-4 py-12 lg:px-8"
+        className="page-container py-12"
       >
         <SectionHeading
           title="Effortless Property Management"
@@ -156,7 +156,7 @@ export default function ServicesPage() {
 
       <section
         id="smart-investments"
-        className="mx-auto max-w-7xl px-4 py-12 lg:px-8"
+        className="page-container py-12"
       >
         <SectionHeading
           title="Smart Investments, Informed Decisions"
