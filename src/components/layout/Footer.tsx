@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Facebook, Linkedin, Mail, Send, Twitter, Youtube } from "lucide-react";
+import { Facebook, Linkedin, Twitter, Youtube } from "lucide-react";
 import { Logo } from "./Logo";
+import { NewsletterForm } from "./NewsletterForm";
 
 const footerLinks = {
   Home: [
@@ -67,28 +68,6 @@ function FooterLinkGroup({
         ))}
       </ul>
     </div>
-  );
-}
-
-function NewsletterForm() {
-  return (
-    <form className="mt-6 flex items-center overflow-hidden rounded-xl bg-surface">
-      <span className="flex shrink-0 items-center pl-4 text-text-muted">
-        <Mail className="h-4 w-4" />
-      </span>
-      <input
-        type="email"
-        placeholder="Enter Your Email"
-        className="min-w-0 flex-1 bg-transparent px-3 py-3.5 text-sm text-white placeholder:text-text-muted outline-none"
-      />
-      <button
-        type="submit"
-        className="flex shrink-0 items-center justify-center px-4 text-white transition hover:text-primary"
-        aria-label="Subscribe"
-      >
-        <Send className="h-4 w-4" />
-      </button>
-    </form>
   );
 }
 
