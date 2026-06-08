@@ -43,13 +43,22 @@ export const iconPaths = {
   services: "/images/icons/services",
 } as const;
 
+/** Bump when replacing files under public/images/properties/ to bust Next.js image cache. */
+const PROPERTY_IMAGE_CACHE_VERSION = "5";
+
+function withPropertyImageCache(path: string): string {
+  return `${path}?v=${PROPERTY_IMAGE_CACHE_VERSION}`;
+}
+
 export function propertyCoverImage(slug: string): string {
-  return `/images/properties/${slug}/cover.jpg`;
+  return withPropertyImageCache(`/images/properties/${slug}/cover.jpg`);
 }
 
 export function propertyGalleryImage(slug: string, index: number): string {
   const num = String(index + 1).padStart(2, "0");
-  return `/images/properties/${slug}/gallery-${num}.jpg`;
+  return withPropertyImageCache(
+    `/images/properties/${slug}/gallery-${num}.jpg`,
+  );
 }
 
 export function propertyGalleryImages(slug: string, count: number): string[] {

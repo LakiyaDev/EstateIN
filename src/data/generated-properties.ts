@@ -43,7 +43,8 @@ export const generatedProperties: Property[] = [
     gallery: [
       "https://loremflickr.com/600/600/interior,home?lock=1004",
       "https://loremflickr.com/600/600/livingroom,design?lock=1005",
-      "https://loremflickr.com/600/600/kitchen,modern?lock=1006"
+      "https://loremflickr.com/600/600/kitchen,modern?lock=1006",
+      "https://loremflickr.com/600/600/pool,waterfront?lock=1007",
     ],
     features: [
       "Floor-to-ceiling windows with natural light",
@@ -69,7 +70,6 @@ export const generatedProperties: Property[] = [
     gallery: [
       "https://loremflickr.com/600/600/bedroom,home?lock=1007",
       "https://loremflickr.com/600/600/interior,home?lock=1008",
-      "https://loremflickr.com/600/600/livingroom,design?lock=1009"
     ],
     features: [
       "Spacious backyard with mature landscaping",
@@ -121,7 +121,8 @@ export const generatedProperties: Property[] = [
     gallery: [
       "https://loremflickr.com/600/600/livingroom,design?lock=1013",
       "https://loremflickr.com/600/600/kitchen,modern?lock=1014",
-      "https://loremflickr.com/600/600/bedroom,home?lock=1015"
+      "https://loremflickr.com/600/600/bedroom,home?lock=1015",
+      "https://loremflickr.com/600/600/interior,home?lock=1016",
     ],
     features: [
       "Open floor plan with premium finishes",
@@ -147,7 +148,9 @@ export const generatedProperties: Property[] = [
     gallery: [
       "https://loremflickr.com/600/600/interior,home?lock=1016",
       "https://loremflickr.com/600/600/livingroom,design?lock=1017",
-      "https://loremflickr.com/600/600/kitchen,modern?lock=1018"
+      "https://loremflickr.com/600/600/kitchen,modern?lock=1018",
+      "https://loremflickr.com/600/600/bathroom,modern?lock=1019",
+      "https://loremflickr.com/600/600/pool,desert?lock=1020",
     ],
     features: [
       "Floor-to-ceiling windows with natural light",
@@ -155,162 +158,6 @@ export const generatedProperties: Property[] = [
       "In-unit laundry and storage",
       "Energy-efficient appliances",
       "Reserved parking included"
-    ]
-  },
-  {
-    slug: "brookside-bungalow",
-    title: "Brookside Bungalow",
-    location: "Portland, Oregon",
-    locationTag: "Garden Living",
-    price: 585000,
-    priceFormatted: "$585,000",
-    description: "Bright interiors, functional layouts, and desirable neighborhood access make this listing a standout opportunity for modern living.",
-    bedrooms: 3,
-    bathrooms: 2,
-    area: "1,700 Square Feet",
-    type: "Bungalow",
-    image: "https://loremflickr.com/800/600/farmhouse,home?lock=7",
-    gallery: [
-      "https://loremflickr.com/600/600/bedroom,home?lock=1019",
-      "https://loremflickr.com/600/600/interior,home?lock=1020",
-      "https://loremflickr.com/600/600/livingroom,design?lock=1021"
-    ],
-    features: [
-      "Spacious backyard with mature landscaping",
-      "Recently renovated bathrooms",
-      "Hardwood floors throughout",
-      "Attached two-car garage",
-      "Quiet residential neighborhood"
-    ]
-  },
-  {
-    slug: "capitol-hill-duplex",
-    title: "Capitol Hill Duplex",
-    location: "Seattle, Washington",
-    locationTag: "City Charm",
-    price: 998000,
-    priceFormatted: "$998,000",
-    description: "Discover a home built for entertaining and everyday ease, with finishes and features that reflect contemporary lifestyle expectations.",
-    bedrooms: 4,
-    bathrooms: 3,
-    area: "2,400 Square Feet",
-    type: "Duplex",
-    image: "https://loremflickr.com/800/600/modern,house?lock=8",
-    gallery: [
-      "https://loremflickr.com/600/600/kitchen,modern?lock=1022",
-      "https://loremflickr.com/600/600/bedroom,home?lock=1023",
-      "https://loremflickr.com/600/600/interior,home?lock=1024"
-    ],
-    features: [
-      "Resort-style community amenities",
-      "Chef-inspired kitchen layout",
-      "Dual-zone HVAC system",
-      "Security system pre-wired",
-      "Move-in ready condition"
-    ]
-  },
-  {
-    slug: "golden-gate-condo",
-    title: "Golden Gate Condo",
-    location: "San Francisco, California",
-    locationTag: "Bay Views",
-    price: 1320000,
-    priceFormatted: "$1,320,000",
-    description: "A thoughtfully designed residence that balances comfort, style, and location. Ideal for buyers seeking a turnkey home with strong long-term value.",
-    bedrooms: 2,
-    bathrooms: 2,
-    area: "1,350 Square Feet",
-    type: "Condo",
-    image: "https://loremflickr.com/800/600/luxury,home?lock=9",
-    gallery: [
-      "https://loremflickr.com/600/600/livingroom,design?lock=1025",
-      "https://loremflickr.com/600/600/kitchen,modern?lock=1026",
-      "https://loremflickr.com/600/600/bedroom,home?lock=1027"
-    ],
-    features: [
-      "Open floor plan with premium finishes",
-      "Updated kitchen with quartz countertops",
-      "Primary suite with walk-in closet",
-      "Private outdoor entertaining space",
-      "Smart home climate control"
-    ]
-  },
-  {
-    slug: "blue-ridge-cabin",
-    title: "Blue Ridge Cabin",
-    location: "Boone, North Carolina",
-    locationTag: "Mountain View",
-    price: 495000,
-    priceFormatted: "$495,000",
-    description: "This property offers generous living spaces, quality craftsmanship, and a setting that supports both relaxation and everyday convenience.",
-    bedrooms: 3,
-    bathrooms: 2,
-    area: "1,550 Square Feet",
-    type: "Cottage",
-    image: "https://loremflickr.com/800/600/architecture,building?lock=10",
-    gallery: [
-      "https://loremflickr.com/600/600/interior,home?lock=1028",
-      "https://loremflickr.com/600/600/livingroom,design?lock=1029",
-      "https://loremflickr.com/600/600/kitchen,modern?lock=1030"
-    ],
-    features: [
-      "Floor-to-ceiling windows with natural light",
-      "Dedicated home office nook",
-      "In-unit laundry and storage",
-      "Energy-efficient appliances",
-      "Reserved parking included"
-    ]
-  },
-  {
-    slug: "magnolia-manor",
-    title: "Magnolia Manor",
-    location: "Charleston, South Carolina",
-    locationTag: "Historic Charm",
-    price: 1680000,
-    priceFormatted: "$1,680,000",
-    description: "Bright interiors, functional layouts, and desirable neighborhood access make this listing a standout opportunity for modern living.",
-    bedrooms: 5,
-    bathrooms: 4,
-    area: "3,800 Square Feet",
-    type: "Estate",
-    image: "https://loremflickr.com/800/600/villa,pool?lock=11",
-    gallery: [
-      "https://loremflickr.com/600/600/bedroom,home?lock=1031",
-      "https://loremflickr.com/600/600/interior,home?lock=1032",
-      "https://loremflickr.com/600/600/livingroom,design?lock=1033"
-    ],
-    features: [
-      "Spacious backyard with mature landscaping",
-      "Recently renovated bathrooms",
-      "Hardwood floors throughout",
-      "Attached two-car garage",
-      "Quiet residential neighborhood"
-    ]
-  },
-  {
-    slug: "riverwalk-apartment",
-    title: "Riverwalk Apartment",
-    location: "San Antonio, Texas",
-    locationTag: "Downtown Living",
-    price: 425000,
-    priceFormatted: "$425,000",
-    description: "Discover a home built for entertaining and everyday ease, with finishes and features that reflect contemporary lifestyle expectations.",
-    bedrooms: 2,
-    bathrooms: 2,
-    area: "1,200 Square Feet",
-    type: "Apartment",
-    image: "https://loremflickr.com/800/600/cottage,home?lock=12",
-    gallery: [
-      "https://loremflickr.com/600/600/kitchen,modern?lock=1034",
-      "https://loremflickr.com/600/600/bedroom,home?lock=1035",
-      "https://loremflickr.com/600/600/interior,home?lock=1036"
-    ],
-    features: [
-      "Resort-style community amenities",
-      "Chef-inspired kitchen layout",
-      "Dual-zone HVAC system",
-      "Security system pre-wired",
-      "Move-in ready condition"
     ]
   },
   {

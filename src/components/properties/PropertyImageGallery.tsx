@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -15,8 +15,16 @@ export function PropertyImageGallery({
   image,
   gallery,
 }: PropertyImageGalleryProps) {
-  const slides = [image, ...gallery];
+  const slides = useMemo(() => {
+    const all = [image, ...gallery];
+    return all.filter((src, i) => all.indexOf(src) === i);
+  }, [image, gallery]);
+
   const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    setIndex(0);
+  }, [slides]);
 
   const goTo = useCallback(
     (nextIndex: number) => {
@@ -25,8 +33,13 @@ export function PropertyImageGallery({
     [slides.length],
   );
 
-  const goPrev = useCallback(() => goTo(index - 1), [goTo, index]);
-  const goNext = useCallback(() => goTo(index + 1), [goTo, index]);
+  const goPrev = useCallback(() => {
+    setIndex((current) => (current - 1 + slides.length) % slides.length);
+  }, [slides.length]);
+
+  const goNext = useCallback(() => {
+    setIndex((current) => (current + 1) % slides.length);
+  }, [slides.length]);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -42,57 +55,82 @@ export function PropertyImageGallery({
     return null;
   }
 
+  const safeIndex = Math.min(index, slides.length - 1);
   const secondaryIndex =
-    slides.length > 1 ? (index + 1) % slides.length : index;
+    slides.length > 1 ? (safeIndex + 1) % slides.length : safeIndex;
+  const currentSrc = slides[safeIndex];
+  const secondarySrc = slides[secondaryIndex];
 
   return (
     <div>
-      <div className="flex gap-2 overflow-x-auto pb-2">
-        {slides.map((src, i) => (
-          <button
-            key={`${src}-${i}`}
-            type="button"
-            onClick={() => goTo(i)}
-            aria-label={`View image ${i + 1} of ${slides.length}`}
-            aria-current={i === index ? "true" : undefined}
-            className={`relative h-16 w-24 shrink-0 overflow-hidden rounded-lg border transition ${
-              i === index
-                ? "border-primary ring-2 ring-primary/40"
-                : "border-border opacity-80 hover:opacity-100"
-            }`}
-          >
-            <Image
-              src={src}
-              alt={`${title} thumbnail ${i + 1}`}
-              fill
-              className="object-cover"
-              sizes="96px"
-            />
-          </button>
-        ))}
-      </div>
+      {slides.length > 1 && (
+        <div className="flex gap-2 overflow-x-auto pb-2">
+          {slides.map((src, i) => (
+            <button
+              key={src}
+              type="button"
+              onClick={() => goTo(i)}
+              aria-label={`View image ${i + 1} of ${slides.length}`}
+              aria-current={i === safeIndex ? "true" : undefined}
+              className={`relative h-16 w-24 shrink-0 overflow-hidden rounded-lg border transition ${
+                i === safeIndex
+                  ? "border-primary ring-2 ring-primary/40"
+                  : "border-border opacity-80 hover:opacity-100"
+              }`}
+            >
+              <Image
+                src={src}
+                alt={`${title} thumbnail ${i + 1}`}
+                fill
+                className="object-cover"
+                sizes="96px"
+                quality={90}
+              />
+            </button>
+          ))}
+        </div>
+      )}
 
-      <div className="mt-4 grid gap-4 md:grid-cols-2">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border">
+      {slides.length === 1 ? (
+        <div className="relative mt-4 aspect-[4/3] overflow-hidden rounded-xl border border-border">
           <Image
-            src={slides[index]}
-            alt={`${title} — photo ${index + 1}`}
+            key={currentSrc}
+            src={currentSrc}
+            alt={`${title} — cover`}
             fill
-            className="object-cover transition-opacity duration-300"
-            sizes="50vw"
+            className="object-cover"
+            sizes="100vw"
+            quality={90}
             priority
           />
         </div>
-        <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border">
-          <Image
-            src={slides[secondaryIndex]}
-            alt={`${title} — photo ${secondaryIndex + 1}`}
-            fill
-            className="object-cover transition-opacity duration-300"
-            sizes="50vw"
-          />
+      ) : (
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border">
+            <Image
+              key={currentSrc}
+              src={currentSrc}
+              alt={`${title} — photo ${safeIndex + 1}`}
+              fill
+              className="object-cover"
+              sizes="50vw"
+              quality={90}
+              priority
+            />
+          </div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border">
+            <Image
+              key={secondarySrc}
+              src={secondarySrc}
+              alt={`${title} — photo ${secondaryIndex + 1}`}
+              fill
+              className="object-cover"
+              sizes="50vw"
+              quality={90}
+            />
+          </div>
         </div>
-      </div>
+      )}
 
       {slides.length > 1 && (
         <div className="mt-4 flex items-center justify-center gap-4">
@@ -105,15 +143,17 @@ export function PropertyImageGallery({
             <ChevronLeft className="h-4 w-4" />
           </button>
           <div className="flex gap-1.5">
-            {slides.map((_, i) => (
+            {slides.map((src, i) => (
               <button
-                key={i}
+                key={src}
                 type="button"
                 onClick={() => goTo(i)}
                 aria-label={`Go to image ${i + 1}`}
-                aria-current={i === index ? "true" : undefined}
+                aria-current={i === safeIndex ? "true" : undefined}
                 className={`h-2 w-2 rounded-full transition ${
-                  i === index ? "bg-primary" : "bg-border hover:bg-text-muted"
+                  i === safeIndex
+                    ? "bg-primary"
+                    : "bg-border hover:bg-text-muted"
                 }`}
               />
             ))}

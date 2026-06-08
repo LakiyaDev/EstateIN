@@ -14,6 +14,7 @@ export function PropertyCard({ property }: { property: Property }) {
             fill
             className="object-cover transition duration-500 hover:scale-105"
             sizes="(max-width: 768px) 100vw, 33vw"
+            quality={90}
           />
         </div>
       </div>

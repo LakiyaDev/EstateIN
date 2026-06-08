@@ -3,34 +3,13 @@
 export const propertyCatalog = [
   { slug: "seaside-serenity-villa", type: "Villa", locationTag: "Coastal Escape", galleryCount: 4 },
   { slug: "metropolitan-haven", type: "Apartment", locationTag: "Urban Living", galleryCount: 2 },
-  { slug: "rustic-retreat-cottage", type: "Cottage", locationTag: "Mountain View", galleryCount: 2 },
+  { slug: "rustic-retreat-cottage", type: "Cottage", locationTag: "Mountain View", galleryCount: 1 },
   { slug: "sunset-ridge-estate", type: "Estate", locationTag: "Vineyard Views", galleryCount: 3 },
-  { slug: "harborview-penthouse", type: "Penthouse", locationTag: "Waterfront Living", galleryCount: 3 },
-  { slug: "willow-creek-townhouse", type: "Townhouse", locationTag: "Suburban Comfort", galleryCount: 3 },
+  { slug: "harborview-penthouse", type: "Penthouse", locationTag: "Waterfront Living", galleryCount: 4 },
+  { slug: "willow-creek-townhouse", type: "Townhouse", locationTag: "Suburban Comfort", galleryCount: 2 },
   { slug: "pinecrest-lodge", type: "Cottage", locationTag: "Lakefront", galleryCount: 3 },
-  { slug: "skyline-loft", type: "Loft", locationTag: "Urban Living", galleryCount: 3 },
-  { slug: "desert-oasis-villa", type: "Villa", locationTag: "Desert Retreat", galleryCount: 3 },
-  { slug: "brookside-bungalow", type: "Bungalow", locationTag: "Garden Living", galleryCount: 3 },
-  { slug: "capitol-hill-duplex", type: "Duplex", locationTag: "City Charm", galleryCount: 3 },
-  { slug: "golden-gate-condo", type: "Condo", locationTag: "Bay Views", galleryCount: 3 },
-  { slug: "blue-ridge-cabin", type: "Cottage", locationTag: "Mountain View", galleryCount: 3 },
-  { slug: "magnolia-manor", type: "Estate", locationTag: "Historic Charm", galleryCount: 3 },
-  { slug: "riverwalk-apartment", type: "Apartment", locationTag: "Downtown Living", galleryCount: 3 },
-  { slug: "summit-view-chalet", type: "Chalet", locationTag: "Ski Country", galleryCount: 3 },
-  { slug: "lakeside-haven", type: "Villa", locationTag: "Lakefront", galleryCount: 3 },
-  { slug: "midtown-modern-flat", type: "Apartment", locationTag: "Urban Living", galleryCount: 3 },
-  { slug: "cedar-grove-farmhouse", type: "Farmhouse", locationTag: "Country Living", galleryCount: 3 },
-  { slug: "ocean-breeze-condo", type: "Condo", locationTag: "Coastal Escape", galleryCount: 3 },
-  { slug: "elm-street-townhome", type: "Townhouse", locationTag: "Historic District", galleryCount: 3 },
-  { slug: "silver-creek-ranch", type: "Estate", locationTag: "Ranch Living", galleryCount: 3 },
-  { slug: "art-district-loft", type: "Loft", locationTag: "Creative Living", galleryCount: 3 },
-  { slug: "palmetto-bay-villa", type: "Villa", locationTag: "Southern Comfort", galleryCount: 3 },
-  { slug: "highland-park-residence", type: "Estate", locationTag: "Luxury Suburban", galleryCount: 3 },
-  { slug: "bayfront-retreat", type: "Villa", locationTag: "Coastal Escape", galleryCount: 3 },
-  { slug: "maplewood-family-home", type: "House", locationTag: "Family Friendly", galleryCount: 3 },
-  { slug: "riverside-industrial-loft", type: "Loft", locationTag: "Urban Living", galleryCount: 3 },
-  { slug: "cypress-point-cottage", type: "Cottage", locationTag: "Garden District", galleryCount: 3 },
-  { slug: "emerald-city-penthouse", type: "Penthouse", locationTag: "Skyline Views", galleryCount: 3 },
+  { slug: "skyline-loft", type: "Loft", locationTag: "Urban Living", galleryCount: 4 },
+  { slug: "desert-oasis-villa", type: "Villa", locationTag: "Desert Retreat", galleryCount: 5 },
 ];
 
 function lockFor(slug, part) {
@@ -84,32 +63,32 @@ function getSettingTags(locationTag) {
 function getTypeCoverTags(type) {
   switch (type) {
     case "Villa":
-      return "villa,luxury,house";
+      return "villa,luxury,exterior,house";
     case "Penthouse":
-      return "penthouse,apartment,luxury";
+      return "penthouse,luxury,exterior,skyline";
     case "Cottage":
     case "Chalet":
-      return "cottage,cabin,wood";
+      return "cottage,cabin,exterior,wood";
     case "Apartment":
     case "Condo":
-      return "apartment,building,modern";
+      return "apartment,building,exterior,modern";
     case "Loft":
-      return "loft,industrial,apartment";
+      return "loft,industrial,exterior,building";
     case "Estate":
-      return "mansion,estate,luxury";
+      return "mansion,estate,luxury,exterior";
     case "Townhouse":
     case "Townhome":
-      return "townhouse,rowhouse,home";
+      return "townhouse,rowhouse,exterior,home";
     case "Bungalow":
-      return "bungalow,house,porch";
+      return "bungalow,house,exterior,porch";
     case "Duplex":
-      return "duplex,house,residential";
+      return "duplex,house,exterior,residential";
     case "Farmhouse":
-      return "farmhouse,barn,country";
+      return "farmhouse,barn,exterior,country";
     case "House":
-      return "house,suburban,family";
+      return "house,suburban,exterior,family";
     default:
-      return "house,home,residential";
+      return "house,home,exterior,residential";
   }
 }
 
@@ -159,13 +138,14 @@ function getGallerySceneTags(type, locationTag, index) {
 }
 
 export function getPropertyCoverUrl({ slug, type, locationTag }) {
+  // Higher-res, more accurate cover: emphasize exterior + setting.
   const tags = `${getTypeCoverTags(type)},${getSettingTags(locationTag)}`;
   const lock = lockFor(slug, "cover");
-  return `https://loremflickr.com/800/600/${tags}?lock=${lock}`;
+  return `https://loremflickr.com/1600/1000/${tags}?lock=${lock}`;
 }
 
 export function getPropertyGalleryUrl({ slug, type, locationTag }, index) {
   const tags = getGallerySceneTags(type, locationTag, index);
   const lock = lockFor(slug, `gallery-${index + 1}`);
-  return `https://loremflickr.com/600/600/${tags}?lock=${lock}`;
+  return `https://loremflickr.com/1200/900/${tags}?lock=${lock}`;
 }

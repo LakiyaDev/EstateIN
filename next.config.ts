@@ -25,6 +25,8 @@ function getLocalNetworkOrigins(): string[] {
 const nextConfig: NextConfig = {
   allowedDevOrigins: getLocalNetworkOrigins(),
   images: {
+    // Serve /public images directly in dev so replaced files show without clearing .next/cache
+    unoptimized: process.env.NODE_ENV === "development",
     remotePatterns: [
       {
         protocol: "https",

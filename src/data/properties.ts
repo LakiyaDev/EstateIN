@@ -1,4 +1,7 @@
-import { attachPropertyImages } from "@/lib/images";
+import {
+  attachPropertyImages,
+  propertyGalleryImage,
+} from "@/lib/images";
 import { generatedProperties } from "./generated-properties";
 import type { Property } from "./property-types";
 
@@ -21,10 +24,10 @@ const coreProperties: Property[] = [
     image:
       "https://loremflickr.com/800/600/cottage,home?lock=28",
     gallery: [
-      "https://loremflickr.com/600/600/livingroom,design?lock=2001",
-      "https://loremflickr.com/600/600/kitchen,modern?lock=2002",
-      "https://loremflickr.com/600/600/bedroom,home?lock=2003",
-      "https://loremflickr.com/600/600/interior,home?lock=2004"
+      "/images/properties/seaside-serenity-villa/gallery-01.jpg",
+      "/images/properties/seaside-serenity-villa/gallery-03.jpg",
+      "/images/properties/seaside-serenity-villa/gallery-04.jpg",
+      "/images/properties/seaside-serenity-villa/gallery-05.jpg",
     ],
     features: [
       "Expansive oceanfront terrace for outdoor entertaining",
@@ -77,8 +80,7 @@ const coreProperties: Property[] = [
     image:
       "https://loremflickr.com/800/600/mansion,house?lock=30",
     gallery: [
-      "https://loremflickr.com/600/600/bedroom,home?lock=2007",
-      "https://loremflickr.com/600/600/interior,home?lock=2008"
+      "/images/properties/rustic-retreat-cottage/gallery-01.jpg",
     ],
     features: [
       "Stone fireplace in the living room",
@@ -92,12 +94,25 @@ const coreProperties: Property[] = [
 
 export const properties: Property[] = [
   ...coreProperties,
-  ...generatedProperties,
-].map(attachPropertyImages);
+  // 6 generated + 3 core = 9 total listings.
+  ...generatedProperties.slice(0, 6),
+]
+  .map(attachPropertyImages)
+  .map((property) => {
+    if (property.slug !== "seaside-serenity-villa") return property;
 
-export const FEATURED_PROPERTY_COUNT = 15;
+    const mainImage = propertyGalleryImage("seaside-serenity-villa", 0);
 
-export const featuredProperties = properties.slice(0, FEATURED_PROPERTY_COUNT);
+    return {
+      ...property,
+      image: mainImage,
+      gallery: property.gallery.filter((src) => src !== mainImage),
+    };
+  });
+
+export const PROPERTY_COUNT = 9;
+
+export const featuredProperties = properties;
 
 export function getPropertyBySlug(slug: string) {
   return properties.find((p) => p.slug === slug);
