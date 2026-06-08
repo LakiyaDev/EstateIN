@@ -53,8 +53,8 @@ function FooterLinkGroup({
 }) {
   return (
     <div>
-      <h4 className="mb-3 text-sm font-medium text-white sm:mb-4">{title}</h4>
-      <ul className="space-y-2.5">
+      <h4 className="mb-4 text-sm font-medium text-white">{title}</h4>
+      <ul className="space-y-3">
         {links.map((link) => (
           <li key={link.label}>
             <Link
@@ -72,8 +72,8 @@ function FooterLinkGroup({
 
 function NewsletterForm() {
   return (
-    <form className="mt-6 flex overflow-hidden rounded-xl border border-border bg-surface">
-      <span className="flex items-center pl-4 text-text-muted">
+    <form className="mt-6 flex items-center overflow-hidden rounded-xl bg-surface">
+      <span className="flex shrink-0 items-center pl-4 text-text-muted">
         <Mail className="h-4 w-4" />
       </span>
       <input
@@ -83,7 +83,7 @@ function NewsletterForm() {
       />
       <button
         type="submit"
-        className="flex items-center justify-center px-4 text-white transition hover:text-primary"
+        className="flex shrink-0 items-center justify-center px-4 text-white transition hover:text-primary"
         aria-label="Subscribe"
       >
         <Send className="h-4 w-4" />
@@ -94,10 +94,10 @@ function NewsletterForm() {
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-background">
-      <div className="page-container py-10 sm:py-12 lg:py-14">
-        <div className="hidden lg:grid lg:grid-cols-[1.15fr_repeat(5,1fr)] lg:gap-8">
-          <div>
+    <footer className="bg-black">
+      <div className="page-container py-12 sm:py-16 lg:py-20">
+        <div className="hidden lg:grid lg:grid-cols-[minmax(220px,1.2fr)_repeat(5,minmax(0,1fr))] lg:gap-x-10 lg:gap-y-8">
+          <div className="pr-4">
             <Logo />
             <NewsletterForm />
           </div>
@@ -109,8 +109,8 @@ export function Footer() {
         <div className="lg:hidden">
           <Logo />
           <NewsletterForm />
-          <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-8">
-            <div className="space-y-8 border-r border-border pr-4">
+          <div className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10">
+            <div className="space-y-10">
               {mobileLeftGroups.map((title) => (
                 <FooterLinkGroup
                   key={title}
@@ -119,7 +119,7 @@ export function Footer() {
                 />
               ))}
             </div>
-            <div className="space-y-8 pl-2">
+            <div className="space-y-10">
               {mobileRightGroups.map((title) => (
                 <FooterLinkGroup
                   key={title}
@@ -130,27 +130,27 @@ export function Footer() {
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="mt-10 rounded-xl bg-surface px-4 py-8 lg:mt-12 lg:rounded-none lg:border-t lg:border-border lg:bg-surface-elevated lg:px-0 lg:py-6">
-          <div className="flex flex-col items-center gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <div className="flex flex-col items-center gap-2 text-center text-sm text-text-muted lg:flex-row lg:gap-4 lg:text-left">
-              <span>@2023 Estatein. All Rights Reserved.</span>
-              <Link href="#" className="transition hover:text-white">
-                Terms & Conditions
-              </Link>
-            </div>
-            <div className="flex justify-center gap-3 lg:justify-end">
-              {socials.map(({ icon: Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-background transition hover:bg-white/90"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
-            </div>
+      <div className="border-t border-border/40 bg-surface">
+        <div className="page-container flex flex-col items-center gap-6 py-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col items-center gap-2 text-center text-sm text-text-muted sm:flex-row sm:gap-4 sm:text-left">
+            <span>@2023 Estatein. All Rights Reserved.</span>
+            <Link href="#" className="transition hover:text-white">
+              Terms & Conditions
+            </Link>
+          </div>
+          <div className="flex items-center gap-3">
+            {socials.map(({ icon: Icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-surface-elevated text-white transition hover:bg-border"
+              >
+                <Icon className="h-4 w-4" />
+              </a>
+            ))}
           </div>
         </div>
       </div>

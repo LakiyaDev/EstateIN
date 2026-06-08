@@ -95,6 +95,10 @@ export const properties: Property[] = [
   ...generatedProperties,
 ].map(attachPropertyImages);
 
+export const FEATURED_PROPERTY_COUNT = 15;
+
+export const featuredProperties = properties.slice(0, FEATURED_PROPERTY_COUNT);
+
 export function getPropertyBySlug(slug: string) {
   return properties.find((p) => p.slug === slug);
 }

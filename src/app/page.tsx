@@ -4,14 +4,14 @@ import { FeaturedPropertiesSection } from "@/components/home/FeaturedPropertiesS
 import { HeroSection } from "@/components/home/HeroSection";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { testimonials, faqs } from "@/data/content";
-import { properties } from "@/data/properties";
+import { featuredProperties } from "@/data/properties";
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
 
-      <FeaturedPropertiesSection properties={properties} />
+      <FeaturedPropertiesSection properties={featuredProperties} />
       <TestimonialsSection testimonials={testimonials} />
       <FaqSection faqs={faqs} />
 
