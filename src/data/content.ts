@@ -29,7 +29,14 @@ export const heroFeatures: {
   },
 ];
 
-export const testimonials = [
+export type Testimonial = {
+  title: string;
+  text: string;
+  name: string;
+  location: string;
+};
+
+export const testimonials: Testimonial[] = [
   {
     title: "Exceptional Service!",
     text: "Our experience with Estatein was outstanding. Their team's dedication and professionalism made finding our dream home a smooth and stress-free process. Highly recommended!",

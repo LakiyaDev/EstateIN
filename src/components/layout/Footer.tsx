@@ -7,7 +7,7 @@ const footerLinks = {
     { label: "Hero Section", href: "/" },
     { label: "Features", href: "/#features" },
     { label: "Properties", href: "/properties" },
-    { label: "Testimonials", href: "/#testimonials" },
+    { label: "Testimonials", href: "/testimonials" },
     { label: "FAQ's", href: "/faqs" },
   ],
   "About Us": [

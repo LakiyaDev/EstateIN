@@ -4,12 +4,7 @@ import { MobileCarouselSection } from "@/components/home/MobileCarouselSection";
 import { TestimonialCard } from "@/components/home/TestimonialCard";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
-type Testimonial = {
-  title: string;
-  text: string;
-  name: string;
-  location: string;
-};
+import type { Testimonial } from "@/data/content";
 
 export function TestimonialsSection({
   testimonials,
@@ -22,13 +17,13 @@ export function TestimonialsSection({
         title="What Our Clients Say"
         description="Read the success stories and heartfelt testimonials from our valued clients. Discover why they chose Estatein for their real estate needs."
         showIcon={false}
-        viewAllHref="#"
+        viewAllHref="/testimonials"
         viewAllLabel="View All Testimonials"
       />
       <MobileCarouselSection
         items={testimonials}
         total={testimonials.length}
-        viewAllHref="#"
+        viewAllHref="/testimonials"
         viewAllLabel="View All Testimonials"
         getKey={(item) => item.name}
         renderItem={(item) => (
