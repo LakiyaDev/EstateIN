@@ -3,11 +3,7 @@
 import { FaqCard } from "@/components/home/FaqCard";
 import { MobileCarouselSection } from "@/components/home/MobileCarouselSection";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-
-type Faq = {
-  question: string;
-  answer: string;
-};
+import type { Faq } from "@/data/content";
 
 export function FaqSection({ faqs }: { faqs: Faq[] }) {
   return (
@@ -16,17 +12,21 @@ export function FaqSection({ faqs }: { faqs: Faq[] }) {
         title="Frequently Asked Questions"
         description="Find answers to common questions about Estatein's services, property listings, and the real estate process. We're here to provide clarity and assist you every step of the way."
         showIcon={false}
-        viewAllHref="#"
+        viewAllHref="/faqs"
         viewAllLabel="View All FAQ's"
       />
       <MobileCarouselSection
         items={faqs}
-        total={10}
-        viewAllHref="#"
+        total={faqs.length}
+        viewAllHref="/faqs"
         viewAllLabel="View All FAQ's"
         getKey={(faq) => faq.question}
         renderItem={(faq) => (
-          <FaqCard question={faq.question} answer={faq.answer} />
+          <FaqCard
+            question={faq.question}
+            answer={faq.answer}
+            details={faq.details}
+          />
         )}
         renderDesktop={(items) =>
           items.map((faq) => (
@@ -34,6 +34,7 @@ export function FaqSection({ faqs }: { faqs: Faq[] }) {
               key={faq.question}
               question={faq.question}
               answer={faq.answer}
+              details={faq.details}
             />
           ))
         }

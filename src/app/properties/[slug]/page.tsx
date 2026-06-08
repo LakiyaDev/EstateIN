@@ -10,6 +10,7 @@ import { CtaBanner } from "@/components/layout/CtaBanner";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Pagination } from "@/components/ui/Pagination";
 import { ContactForm } from "@/components/forms/ContactForm";
+import { FaqCard } from "@/components/home/FaqCard";
 import { PropertyImageGallery } from "@/components/properties/PropertyImageGallery";
 import { getPropertyBySlug, properties } from "@/data/properties";
 import { faqs } from "@/data/content";
@@ -210,23 +211,16 @@ export default async function PropertyDetailPage({ params }: Props) {
       <section className="page-container py-12">
         <SectionHeading title="Frequently Asked Questions" />
         <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {faqs.map((faq) => (
-            <article
+          {faqs.slice(0, 3).map((faq) => (
+            <FaqCard
               key={faq.question}
-              className="rounded-xl border border-border bg-surface p-6"
-            >
-              <h3 className="font-semibold text-white">{faq.question}</h3>
-              <p className="mt-3 text-sm text-text-muted">{faq.answer}</p>
-              <button
-                type="button"
-                className="mt-4 text-sm text-primary hover:underline"
-              >
-                Read More
-              </button>
-            </article>
+              question={faq.question}
+              answer={faq.answer}
+              details={faq.details}
+            />
           ))}
         </div>
-        <Pagination viewAllHref="#" viewAllLabel="View All FAQ's" />
+        <Pagination viewAllHref="/faqs" viewAllLabel="View All FAQ's" />
       </section>
 
       <CtaBanner />

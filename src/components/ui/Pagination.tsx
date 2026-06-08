@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -28,7 +29,7 @@ export function Pagination({
   return (
     <div className="mt-8 border-t border-border pt-6">
       {viewAllHref && (
-        <a
+        <Link
           href={viewAllHref}
           className={cn(
             "mb-4 inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-border bg-surface px-5 py-2.5 text-sm text-text-secondary transition hover:border-text-muted hover:text-white",
@@ -36,7 +37,7 @@ export function Pagination({
           )}
         >
           {viewAllLabel}
-        </a>
+        </Link>
       )}
       <div className="flex items-center justify-between gap-4">
         <span className="text-sm text-white">
