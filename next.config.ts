@@ -9,7 +9,7 @@ function getLocalNetworkOrigins(): string[] {
     for (const iface of Object.values(os.networkInterfaces() ?? {})) {
       if (!iface) continue;
       for (const config of iface) {
-        const isIPv4 = config.family === "IPv4" || config.family === 4;
+        const isIPv4 = String(config.family) === "IPv4";
         if (isIPv4 && !config.internal) {
           origins.add(config.address);
         }

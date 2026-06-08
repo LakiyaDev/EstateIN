@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
-import { TopBanner } from "@/components/layout/TopBanner";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
 import { brandImages } from "@/lib/images";
 import "./globals.css";
 
@@ -64,12 +61,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${urbanist.variable} antialiased`}>
-        <TopBanner />
-        <Header />
-        <main className="min-w-0">{children}</main>
-        <Footer />
-      </body>
+      <body className={`${urbanist.variable} antialiased`}>{children}</body>
     </html>
   );
 }

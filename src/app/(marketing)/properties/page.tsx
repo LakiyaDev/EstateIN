@@ -4,7 +4,9 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Pagination } from "@/components/ui/Pagination";
 import { PropertyCard } from "@/components/properties/PropertyCard";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { properties } from "@/data/properties";
+import { getProperties } from "@/lib/data/properties";
+
+export const dynamic = "force-dynamic";
 
 const filters = [
   { label: "Location", icon: MapPin },
@@ -14,7 +16,9 @@ const filters = [
   { label: "Build Year", icon: Calendar },
 ];
 
-export default function PropertiesPage() {
+export default async function PropertiesPage() {
+  const properties = await getProperties();
+
   return (
     <>
       <section className="page-container py-12 lg:py-16">

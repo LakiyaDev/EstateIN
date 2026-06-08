@@ -1,0 +1,236 @@
+[
+  {
+    "slug": "seaside-serenity-villa",
+    "title": "Seaside Serenity Villa",
+    "location": "Malibu, California",
+    "locationTag": "Coastal Escape",
+    "price": 1250000,
+    "priceFormatted": "$1,250,000",
+    "description": "Discover your own piece of paradise with the Seaside Serenity Villa. With an open floor plan, breathtaking ocean views, and direct beach access, this coastal retreat offers the ultimate blend of luxury and tranquility.",
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "area": "2,500 Square Feet",
+    "type": "Villa",
+    "image": "/images/properties/seaside-serenity-villa/gallery-01.jpg?v=5",
+    "gallery": [
+      "/images/properties/seaside-serenity-villa/gallery-02.jpg?v=5",
+      "/images/properties/seaside-serenity-villa/gallery-03.jpg?v=5",
+      "/images/properties/seaside-serenity-villa/gallery-04.jpg?v=5"
+    ],
+    "features": [
+      "Expansive oceanfront terrace for outdoor entertaining",
+      "Gourmet kitchen with top-tier appliances and finishes",
+      "Private beach access for a serene coastal lifestyle",
+      "Master suite with a spa-inspired bathroom and walk-in closet",
+      "Integrated smart home technology for modern living"
+    ]
+  },
+  {
+    "slug": "metropolitan-haven",
+    "title": "Metropolitan Haven",
+    "location": "New York, NY",
+    "locationTag": "Urban Living",
+    "price": 850000,
+    "priceFormatted": "$850,000",
+    "description": "A chic urban residence in the heart of the city. Floor-to-ceiling windows, premium finishes, and unbeatable skyline views make this the perfect metropolitan retreat.",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "area": "1,800 Square Feet",
+    "type": "Apartment",
+    "image": "/images/properties/metropolitan-haven/cover.jpg?v=5",
+    "gallery": [
+      "/images/properties/metropolitan-haven/gallery-01.jpg?v=5",
+      "/images/properties/metropolitan-haven/gallery-02.jpg?v=5"
+    ],
+    "features": [
+      "Panoramic city skyline views",
+      "Open-concept living and dining area",
+      "Concierge and 24/7 security",
+      "Rooftop terrace access",
+      "In-unit laundry and storage"
+    ]
+  },
+  {
+    "slug": "rustic-retreat-cottage",
+    "title": "Rustic Retreat Cottage",
+    "location": "Aspen, Colorado",
+    "locationTag": "Mountain View",
+    "price": 550000,
+    "priceFormatted": "$550,000",
+    "description": "Nestled in the mountains, this charming cottage offers cozy interiors, a stone fireplace, and sweeping views of the surrounding peaks — ideal for weekend getaways.",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "area": "1,600 Square Feet",
+    "type": "Cottage",
+    "image": "/images/properties/rustic-retreat-cottage/cover.jpg?v=5",
+    "gallery": [
+      "/images/properties/rustic-retreat-cottage/gallery-01.jpg?v=5"
+    ],
+    "features": [
+      "Stone fireplace in the living room",
+      "Wraparound deck with mountain views",
+      "Updated kitchen with rustic cabinetry",
+      "Heated floors in primary suite",
+      "Two-car detached garage"
+    ]
+  },
+  {
+    "slug": "sunset-ridge-estate",
+    "title": "Sunset Ridge Estate",
+    "location": "Napa Valley, California",
+    "locationTag": "Vineyard Views",
+    "price": 2450000,
+    "priceFormatted": "$2,450,000",
+    "description": "A thoughtfully designed residence that balances comfort, style, and location. Ideal for buyers seeking a turnkey home with strong long-term value.",
+    "bedrooms": 5,
+    "bathrooms": 4,
+    "area": "4,200 Square Feet",
+    "type": "Estate",
+    "image": "/images/properties/sunset-ridge-estate/cover.jpg?v=5",
+    "gallery": [
+      "/images/properties/sunset-ridge-estate/gallery-01.jpg?v=5",
+      "/images/properties/sunset-ridge-estate/gallery-02.jpg?v=5",
+      "/images/properties/sunset-ridge-estate/gallery-03.jpg?v=5"
+    ],
+    "features": [
+      "Open floor plan with premium finishes",
+      "Updated kitchen with quartz countertops",
+      "Primary suite with walk-in closet",
+      "Private outdoor entertaining space",
+      "Smart home climate control"
+    ]
+  },
+  {
+    "slug": "harborview-penthouse",
+    "title": "Harborview Penthouse",
+    "location": "Miami, Florida",
+    "locationTag": "Waterfront Living",
+    "price": 1890000,
+    "priceFormatted": "$1,890,000",
+    "description": "This property offers generous living spaces, quality craftsmanship, and a setting that supports both relaxation and everyday convenience.",
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "area": "2,800 Square Feet",
+    "type": "Penthouse",
+    "image": "/images/properties/harborview-penthouse/cover.jpg?v=5",
+    "gallery": [
+      "/images/properties/harborview-penthouse/gallery-01.jpg?v=5",
+      "/images/properties/harborview-penthouse/gallery-02.jpg?v=5",
+      "/images/properties/harborview-penthouse/gallery-03.jpg?v=5",
+      "/images/properties/harborview-penthouse/gallery-04.jpg?v=5"
+    ],
+    "features": [
+      "Floor-to-ceiling windows with natural light",
+      "Dedicated home office nook",
+      "In-unit laundry and storage",
+      "Energy-efficient appliances",
+      "Reserved parking included"
+    ]
+  },
+  {
+    "slug": "willow-creek-townhouse",
+    "title": "Willow Creek Townhouse",
+    "location": "Austin, Texas",
+    "locationTag": "Suburban Comfort",
+    "price": 675000,
+    "priceFormatted": "$675,000",
+    "description": "Bright interiors, functional layouts, and desirable neighborhood access make this listing a standout opportunity for modern living.",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "area": "1,950 Square Feet",
+    "type": "Townhouse",
+    "image": "/images/properties/willow-creek-townhouse/cover.jpg?v=5",
+    "gallery": [
+      "/images/properties/willow-creek-townhouse/gallery-01.jpg?v=5",
+      "/images/properties/willow-creek-townhouse/gallery-02.jpg?v=5"
+    ],
+    "features": [
+      "Spacious backyard with mature landscaping",
+      "Recently renovated bathrooms",
+      "Hardwood floors throughout",
+      "Attached two-car garage",
+      "Quiet residential neighborhood"
+    ]
+  },
+  {
+    "slug": "pinecrest-lodge",
+    "title": "Pinecrest Lodge",
+    "location": "Lake Tahoe, Nevada",
+    "locationTag": "Lakefront",
+    "price": 920000,
+    "priceFormatted": "$920,000",
+    "description": "Discover a home built for entertaining and everyday ease, with finishes and features that reflect contemporary lifestyle expectations.",
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "area": "2,200 Square Feet",
+    "type": "Cottage",
+    "image": "/images/properties/pinecrest-lodge/cover.jpg?v=5",
+    "gallery": [
+      "/images/properties/pinecrest-lodge/gallery-01.jpg?v=5",
+      "/images/properties/pinecrest-lodge/gallery-02.jpg?v=5",
+      "/images/properties/pinecrest-lodge/gallery-03.jpg?v=5"
+    ],
+    "features": [
+      "Resort-style community amenities",
+      "Chef-inspired kitchen layout",
+      "Dual-zone HVAC system",
+      "Security system pre-wired",
+      "Move-in ready condition"
+    ]
+  },
+  {
+    "slug": "skyline-loft",
+    "title": "Skyline Loft",
+    "location": "Chicago, Illinois",
+    "locationTag": "Urban Living",
+    "price": 740000,
+    "priceFormatted": "$740,000",
+    "description": "A thoughtfully designed residence that balances comfort, style, and location. Ideal for buyers seeking a turnkey home with strong long-term value.",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "area": "1,450 Square Feet",
+    "type": "Loft",
+    "image": "/images/properties/skyline-loft/cover.jpg?v=5",
+    "gallery": [
+      "/images/properties/skyline-loft/gallery-01.jpg?v=5",
+      "/images/properties/skyline-loft/gallery-02.jpg?v=5",
+      "/images/properties/skyline-loft/gallery-03.jpg?v=5",
+      "/images/properties/skyline-loft/gallery-04.jpg?v=5"
+    ],
+    "features": [
+      "Open floor plan with premium finishes",
+      "Updated kitchen with quartz countertops",
+      "Primary suite with walk-in closet",
+      "Private outdoor entertaining space",
+      "Smart home climate control"
+    ]
+  },
+  {
+    "slug": "desert-oasis-villa",
+    "title": "Desert Oasis Villa",
+    "location": "Scottsdale, Arizona",
+    "locationTag": "Desert Retreat",
+    "price": 1150000,
+    "priceFormatted": "$1,150,000",
+    "description": "This property offers generous living spaces, quality craftsmanship, and a setting that supports both relaxation and everyday convenience.",
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "area": "3,100 Square Feet",
+    "type": "Villa",
+    "image": "/images/properties/desert-oasis-villa/cover.jpg?v=5",
+    "gallery": [
+      "/images/properties/desert-oasis-villa/gallery-01.jpg?v=5",
+      "/images/properties/desert-oasis-villa/gallery-02.jpg?v=5",
+      "/images/properties/desert-oasis-villa/gallery-03.jpg?v=5",
+      "/images/properties/desert-oasis-villa/gallery-04.jpg?v=5",
+      "/images/properties/desert-oasis-villa/gallery-05.jpg?v=5"
+    ],
+    "features": [
+      "Floor-to-ceiling windows with natural light",
+      "Dedicated home office nook",
+      "In-unit laundry and storage",
+      "Energy-efficient appliances",
+      "Reserved parking included"
+    ]
+  }
+]

@@ -12,18 +12,21 @@ import { Pagination } from "@/components/ui/Pagination";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { FaqCard } from "@/components/home/FaqCard";
 import { PropertyImageGallery } from "@/components/properties/PropertyImageGallery";
-import { getPropertyBySlug, properties } from "@/data/properties";
+import { getPropertyBySlug, getProperties } from "@/lib/data/properties";
 import { faqs } from "@/data/content";
 
 type Props = { params: Promise<{ slug: string }> };
 
-export function generateStaticParams() {
+export const dynamic = "force-dynamic";
+
+export async function generateStaticParams() {
+  const properties = await getProperties();
   return properties.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const property = getPropertyBySlug(slug);
+  const property = await getPropertyBySlug(slug);
   if (!property) return { title: "Property Not Found" };
   return {
     title: `${property.title} | Estatein`,
@@ -33,7 +36,7 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function PropertyDetailPage({ params }: Props) {
   const { slug } = await params;
-  const property = getPropertyBySlug(slug);
+  const property = await getPropertyBySlug(slug);
 
   if (!property) notFound();
 

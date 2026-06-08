@@ -92,7 +92,7 @@ const coreProperties: Property[] = [
   },
 ];
 
-export const properties: Property[] = [
+export const staticProperties: Property[] = [
   ...coreProperties,
   // 6 generated + 3 core = 9 total listings.
   ...generatedProperties.slice(0, 6),
@@ -110,10 +110,14 @@ export const properties: Property[] = [
     };
   });
 
+/** @deprecated Use staticProperties or lib/data/properties async helpers */
+export const properties = staticProperties;
+
 export const PROPERTY_COUNT = 9;
 
-export const featuredProperties = properties;
+export const featuredProperties = staticProperties;
 
+/** @deprecated Use getPropertyBySlug from @/lib/data/properties */
 export function getPropertyBySlug(slug: string) {
-  return properties.find((p) => p.slug === slug);
+  return staticProperties.find((p) => p.slug === slug);
 }

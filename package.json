@@ -9,9 +9,12 @@
     "start": "next start -H 0.0.0.0",
     "lint": "next lint",
     "images:download": "node scripts/download-images.mjs",
-    "images:properties": "node scripts/download-images.mjs --properties-only --force-properties"
+    "images:properties": "node scripts/download-images.mjs --properties-only --force-properties",
+    "db:seed": "node scripts/seed-supabase.mjs"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.10.3",
+    "@supabase/supabase-js": "^2.107.0",
     "lucide-react": "^0.511.0",
     "next": "^15.3.3",
     "react": "^19.1.0",

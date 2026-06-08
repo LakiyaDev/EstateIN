@@ -4,9 +4,13 @@ import { FeaturedPropertiesSection } from "@/components/home/FeaturedPropertiesS
 import { HeroSection } from "@/components/home/HeroSection";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
 import { testimonials, faqs } from "@/data/content";
-import { featuredProperties } from "@/data/properties";
+import { getFeaturedProperties } from "@/lib/data/properties";
 
-export default function HomePage() {
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  const featuredProperties = await getFeaturedProperties();
+
   return (
     <>
       <HeroSection />
