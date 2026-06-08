@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Pagination } from "@/components/ui/Pagination";
 import { PropertyCard } from "@/components/properties/PropertyCard";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { properties } from "@/data/properties";
+import { FEATURED_PROPERTY_COUNT, properties } from "@/data/properties";
 
 const filters = [
   { label: "Location", icon: MapPin },
@@ -65,11 +65,11 @@ export default function PropertiesPage() {
           description="Our portfolio of properties is as diverse as your dreams. Explore the categories below to find the perfect property that resonates with your vision of home."
         />
         <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {properties.map((property) => (
+          {properties.slice(0, FEATURED_PROPERTY_COUNT).map((property) => (
             <PropertyCard key={property.slug} property={property} />
           ))}
         </div>
-        <Pagination current={1} total={Math.ceil(properties.length / 9)} />
+        <Pagination current={1} total={1} />
       </section>
 
       <section className="page-container py-12">
