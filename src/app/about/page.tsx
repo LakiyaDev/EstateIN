@@ -16,6 +16,7 @@ import {
   team,
   clients,
 } from "@/data/content";
+import { aboutImages } from "@/lib/images";
 
 const stats = [
   { value: "200+", label: "Happy Customers" },
@@ -70,7 +71,7 @@ export default function AboutPage() {
           </div>
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border">
             <Image
-              src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80"
+              src={aboutImages.journey}
               alt="Hand holding house model"
               fill
               className="object-cover"

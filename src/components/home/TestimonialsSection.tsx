@@ -9,7 +9,6 @@ type Testimonial = {
   text: string;
   name: string;
   location: string;
-  avatar: string;
 };
 
 export function TestimonialsSection({
@@ -38,7 +37,6 @@ export function TestimonialsSection({
             text={item.text}
             name={item.name}
             location={item.location}
-            avatar={item.avatar}
           />
         )}
         renderDesktop={(items) =>
@@ -49,7 +47,6 @@ export function TestimonialsSection({
               text={item.text}
               name={item.name}
               location={item.location}
-              avatar={item.avatar}
             />
           ))
         }

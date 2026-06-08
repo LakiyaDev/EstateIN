@@ -69,7 +69,7 @@ export default function PropertiesPage() {
             <PropertyCard key={property.slug} property={property} />
           ))}
         </div>
-        <Pagination current={1} total={10} />
+        <Pagination current={1} total={Math.ceil(properties.length / 9)} />
       </section>
 
       <section className="page-container py-12">

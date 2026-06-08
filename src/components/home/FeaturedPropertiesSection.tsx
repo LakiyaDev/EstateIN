@@ -21,7 +21,7 @@ export function FeaturedPropertiesSection({
       />
       <MobileCarouselSection
         items={properties}
-        total={60}
+        total={properties.length}
         viewAllHref="/properties"
         viewAllLabel="View All Properties"
         getKey={(property) => property.slug}

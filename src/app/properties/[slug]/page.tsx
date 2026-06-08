@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   MapPin,
@@ -6,13 +5,12 @@ import {
   Bath,
   Maximize2,
   Zap,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
 import { CtaBanner } from "@/components/layout/CtaBanner";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Pagination } from "@/components/ui/Pagination";
 import { ContactForm } from "@/components/forms/ContactForm";
+import { PropertyImageGallery } from "@/components/properties/PropertyImageGallery";
 import { getPropertyBySlug, properties } from "@/data/properties";
 import { faqs } from "@/data/content";
 
@@ -71,63 +69,11 @@ export default async function PropertyDetailPage({ params }: Props) {
           </div>
         </div>
 
-        <div className="mt-6 flex gap-2 overflow-x-auto pb-2">
-          {property.gallery.map((img, i) => (
-            <div
-              key={img}
-              className="relative h-16 w-24 shrink-0 overflow-hidden rounded-lg border border-border"
-            >
-              <Image src={img} alt={`Thumbnail ${i + 1}`} fill className="object-cover" sizes="96px" />
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border">
-            <Image
-              src={property.gallery[0]}
-              alt={`${property.title} exterior`}
-              fill
-              className="object-cover"
-              sizes="50vw"
-              priority
-            />
-          </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border">
-            <Image
-              src={property.gallery[1] ?? property.image}
-              alt={`${property.title} interior`}
-              fill
-              className="object-cover"
-              sizes="50vw"
-            />
-          </div>
-        </div>
-
-        <div className="mt-4 flex items-center justify-center gap-4">
-          <button
-            type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-text-muted"
-            aria-label="Previous image"
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </button>
-          <div className="flex gap-1.5">
-            {property.gallery.slice(0, 5).map((_, i) => (
-              <span
-                key={i}
-                className={`h-2 w-2 rounded-full ${i === 0 ? "bg-primary" : "bg-border"}`}
-              />
-            ))}
-          </div>
-          <button
-            type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-text-muted"
-            aria-label="Next image"
-          >
-            <ChevronRight className="h-4 w-4" />
-          </button>
-        </div>
+        <PropertyImageGallery
+          title={property.title}
+          image={property.image}
+          gallery={property.gallery}
+        />
       </section>
 
       <section className="page-container py-8">

@@ -12,6 +12,7 @@ import {
 import { CtaBanner } from "@/components/layout/CtaBanner";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ContactForm } from "@/components/forms/ContactForm";
+import { contactGalleryImages } from "@/lib/images";
 import { offices } from "@/data/content";
 
 const contactCards = [
@@ -41,14 +42,7 @@ const contactCards = [
   },
 ];
 
-const galleryImages = [
-  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80",
-  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80",
-  "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&q=80",
-  "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&q=80",
-  "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80",
-  "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80",
-];
+const galleryImages = [...contactGalleryImages];
 
 export default function ContactPage() {
   const [officeFilter, setOfficeFilter] = useState<"all" | "regional" | "international">("all");

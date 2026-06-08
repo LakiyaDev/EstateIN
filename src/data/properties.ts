@@ -1,21 +1,10 @@
-export type Property = {
-  slug: string;
-  title: string;
-  location: string;
-  locationTag: string;
-  price: number;
-  priceFormatted: string;
-  description: string;
-  bedrooms: number;
-  bathrooms: number;
-  area: string;
-  type: string;
-  image: string;
-  gallery: string[];
-  features: string[];
-};
+import { attachPropertyImages } from "@/lib/images";
+import { generatedProperties } from "./generated-properties";
+import type { Property } from "./property-types";
 
-export const properties: Property[] = [
+export type { Property } from "./property-types";
+
+const coreProperties: Property[] = [
   {
     slug: "seaside-serenity-villa",
     title: "Seaside Serenity Villa",
@@ -30,12 +19,12 @@ export const properties: Property[] = [
     area: "2,500 Square Feet",
     type: "Villa",
     image:
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
+      "https://loremflickr.com/800/600/cottage,home?lock=28",
     gallery: [
-      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80",
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80",
+      "https://loremflickr.com/600/600/livingroom,design?lock=2001",
+      "https://loremflickr.com/600/600/kitchen,modern?lock=2002",
+      "https://loremflickr.com/600/600/bedroom,home?lock=2003",
+      "https://loremflickr.com/600/600/interior,home?lock=2004"
     ],
     features: [
       "Expansive oceanfront terrace for outdoor entertaining",
@@ -59,10 +48,10 @@ export const properties: Property[] = [
     area: "1,800 Square Feet",
     type: "Apartment",
     image:
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
+      "https://loremflickr.com/800/600/apartment,building?lock=29",
     gallery: [
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80",
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&q=80",
+      "https://loremflickr.com/600/600/livingroom,design?lock=2005",
+      "https://loremflickr.com/600/600/kitchen,modern?lock=2006"
     ],
     features: [
       "Panoramic city skyline views",
@@ -86,10 +75,10 @@ export const properties: Property[] = [
     area: "1,600 Square Feet",
     type: "Cottage",
     image:
-      "https://images.unsplash.com/photo-1449844908441-8829872d2607?w=800&q=80",
+      "https://loremflickr.com/800/600/mansion,house?lock=30",
     gallery: [
-      "https://images.unsplash.com/photo-1449844908441-8829872d2607?w=600&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
+      "https://loremflickr.com/600/600/bedroom,home?lock=2007",
+      "https://loremflickr.com/600/600/interior,home?lock=2008"
     ],
     features: [
       "Stone fireplace in the living room",
@@ -100,6 +89,11 @@ export const properties: Property[] = [
     ],
   },
 ];
+
+export const properties: Property[] = [
+  ...coreProperties,
+  ...generatedProperties,
+].map(attachPropertyImages);
 
 export function getPropertyBySlug(slug: string) {
   return properties.find((p) => p.slug === slug);

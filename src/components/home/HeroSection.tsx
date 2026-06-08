@@ -60,7 +60,7 @@ export function HeroSection() {
             <div className="relative h-full min-h-[320px] overflow-hidden rounded-2xl border border-border bg-[#0a0a0a] sm:min-h-[400px] lg:min-h-[560px] lg:rounded-l-2xl lg:rounded-r-none lg:border-y lg:border-l lg:border-r-0">
               <HeroWaves className="text-white/[0.08] opacity-100" />
               <Image
-                src="/images/hero-building.png"
+                src="/images/hero/building.png"
                 alt="Modern glass high-rise building"
                 fill
                 className="object-cover object-center"

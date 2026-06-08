@@ -7,7 +7,9 @@
     "dev:clean": "rm -rf .next && next dev -H 0.0.0.0",
     "build": "next build",
     "start": "next start -H 0.0.0.0",
-    "lint": "next lint"
+    "lint": "next lint",
+    "images:download": "node scripts/download-images.mjs",
+    "images:properties": "node scripts/download-images.mjs --properties-only --force-properties"
   },
   "dependencies": {
     "lucide-react": "^0.511.0",
