@@ -132,72 +132,53 @@ export const testimonials: Testimonial[] = [
 export type Faq = {
   question: string;
   answer: string;
-  details: string;
 };
 
 export const faqs: Faq[] = [
   {
     question: "How do I search for properties on Estatein?",
     answer:
-      "Learn how to use our user-friendly search tools to find properties that match your criteria, from location to price range.",
-    details:
-      "Visit our Properties page to browse the full portfolio or filter by location, property type, price range, and size. Save listings you like, compare options side by side, and contact an agent directly from any property page for a personalized shortlist.",
+      "Browse our Properties page and filter by location, type, price, and size. Save favorites, compare listings, and contact an agent from any property page for a personalized shortlist.",
   },
   {
     question: "What documents do I need to sell my property?",
     answer:
-      "Find out about the necessary documentation and steps involved in listing your property with Estatein.",
-    details:
-      "Sellers typically need proof of ownership, a valid ID, recent tax records, HOA documents if applicable, and any renovation permits. Our team reviews your paperwork, prepares the listing, and guides you through disclosures so your sale stays compliant and on schedule.",
+      "You will typically need proof of ownership, valid ID, recent tax records, HOA documents if applicable, and any renovation permits. Our team helps prepare your listing and guides you through required disclosures.",
   },
   {
     question: "How can I schedule a property viewing?",
     answer:
-      "Discover how to easily schedule a property viewing through our website or by contacting our team.",
-    details:
-      "Open any property detail page and use the inquiry form, or call our office to book a private tour. We offer in-person and virtual walkthroughs, coordinate access with current owners or tenants, and follow up with answers to your questions after the visit.",
+      "Use the inquiry form on any property page or contact our office to book a tour. We arrange in-person or virtual walkthroughs and follow up with answers after your visit.",
   },
   {
     question: "What financing options are available for buyers?",
     answer:
-      "We connect you with trusted lenders and walk you through mortgage pre-approval, down payment requirements, and loan types so you can buy with confidence.",
-    details:
-      "Whether you are considering conventional, FHA, VA, or jumbo loans, we help you understand rates, terms, and monthly payments before you make an offer. Pre-approval strengthens your position with sellers and keeps your home search focused on realistic price points.",
+      "We connect you with trusted lenders and explain conventional, FHA, VA, and jumbo options, including pre-approval, down payments, and monthly payment estimates before you make an offer.",
   },
   {
     question: "How does Estatein determine property valuations?",
     answer:
-      "Our agents combine local market data, recent comparable sales, property condition, and neighborhood trends to provide accurate, up-to-date valuations.",
-    details:
-      "We analyze active and sold listings nearby, assess upgrades and curb appeal, and factor in demand for your area. You receive a clear pricing recommendation for listing or buying, backed by data you can review and discuss with your dedicated agent.",
+      "Our agents analyze comparable sales, property condition, neighborhood trends, and local demand to provide a clear, data-backed pricing recommendation for buyers and sellers.",
   },
   {
     question: "Can Estatein help me manage a rental property?",
     answer:
-      "Yes. Our property management team handles tenant screening, rent collection, maintenance coordination, and regular reporting for landlords.",
-    details:
-      "From marketing vacant units to handling repairs and lease renewals, we act as your on-the-ground partner. Owners receive transparent monthly statements and responsive support so their investment stays profitable with less day-to-day stress.",
+      "Yes. We handle tenant screening, rent collection, maintenance, and owner reporting so your rental stays profitable with less day-to-day work for you.",
   },
   {
     question: "What are the typical closing costs when buying a home?",
     answer:
-      "Closing costs usually include appraisal fees, title insurance, attorney fees, and transfer taxes. We provide a clear estimate early so there are no surprises at closing.",
-    details:
-      "Costs generally range from 2% to 5% of the purchase price depending on location and loan type. We break down each line item before you sign, coordinate with your lender and attorney, and make sure you know exactly what is due on closing day.",
+      "Closing costs often include appraisal fees, title insurance, attorney fees, and transfer taxes, usually totaling 2–5% of the purchase price. We provide a clear breakdown before closing day.",
   },
   {
     question: "How long does it usually take to sell a property?",
     answer:
-      "Timelines vary by market and pricing strategy, but most well-priced listings receive offers within a few weeks. We keep you updated at every stage.",
-    details:
-      "After staging, photography, and listing launch, we track showing activity and buyer feedback weekly. If interest is slower than expected, we adjust marketing and pricing collaboratively so your property stays competitive without unnecessary delays.",
+      "Most well-priced listings receive offers within a few weeks. We track showings and feedback closely and adjust marketing or pricing when needed to keep your sale on track.",
   },
   {
     question: "Do you assist with commercial real estate transactions?",
     answer:
-      "Absolutely. Estatein supports office leases, retail spaces, and investment properties with dedicated commercial specialists and market analysis.",
-    details:
-      "Our commercial team evaluates foot traffic, zoning, lease structures, and cap rates to help you make sound decisions. Whether you are leasing your first office or expanding an investment portfolio, we provide the research and negotiation support you need.",
+      "Yes. Our commercial team supports office, retail, and investment deals with market analysis on zoning, lease terms, foot traffic, and cap rates.",
   },
 ];
 

@@ -216,7 +216,6 @@ export default async function PropertyDetailPage({ params }: Props) {
               key={faq.question}
               question={faq.question}
               answer={faq.answer}
-              details={faq.details}
             />
           ))}
         </div>

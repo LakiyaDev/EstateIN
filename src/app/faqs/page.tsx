@@ -25,7 +25,6 @@ export default function FaqsPage() {
               key={faq.question}
               question={faq.question}
               answer={faq.answer}
-              details={faq.details}
             />
           ))}
         </div>

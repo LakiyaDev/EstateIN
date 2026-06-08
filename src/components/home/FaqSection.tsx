@@ -22,11 +22,7 @@ export function FaqSection({ faqs }: { faqs: Faq[] }) {
         viewAllLabel="View All FAQ's"
         getKey={(faq) => faq.question}
         renderItem={(faq) => (
-          <FaqCard
-            question={faq.question}
-            answer={faq.answer}
-            details={faq.details}
-          />
+          <FaqCard question={faq.question} answer={faq.answer} />
         )}
         renderDesktop={(items) =>
           items.map((faq) => (
@@ -34,7 +30,6 @@ export function FaqSection({ faqs }: { faqs: Faq[] }) {
               key={faq.question}
               question={faq.question}
               answer={faq.answer}
-              details={faq.details}
             />
           ))
         }
