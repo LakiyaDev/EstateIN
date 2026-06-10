@@ -37,7 +37,7 @@ cp .env.example .env.local
 In the Supabase SQL Editor, run the contents of:
 
 ```
-supabase/migrations/001_admin_platform.sql
+supabase/migrations/20260608083402_admin_platform.sql
 ```
 
 Or use the Supabase CLI:
@@ -92,7 +92,7 @@ Admin authentication includes:
 | **Server-side guards** | All admin actions and data reads verify session via `getUser()` |
 | **Security headers** | `X-Frame-Options`, `X-Content-Type-Options`, etc. on admin routes |
 
-Apply migration `003_admin_auth_security.sql` for login rate limiting (or run `supabase db push`).
+Apply migration `20260610174500_admin_auth_security.sql` for login rate limiting (or run `supabase db push`).
 
 **Recommended:** Enable MFA in Supabase Dashboard → **Authentication → Providers** for production admin accounts.
 
