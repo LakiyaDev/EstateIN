@@ -7,10 +7,15 @@ import Link from "next/link";
 
 function LoginForm() {
   const searchParams = useSearchParams();
+  const errorParam = searchParams.get("error");
   const urlError =
-    searchParams.get("error") === "unauthorized"
+    errorParam === "unauthorized"
       ? "Your account is not authorized for admin access. Contact the site owner."
-      : "";
+      : errorParam === "unverified"
+        ? "Please confirm your email before signing in."
+        : errorParam === "session"
+          ? "Your session has expired. Please sign in again."
+          : "";
   const [state, formAction, pending] = useActionState(signInAdmin, {
     error: "",
   });
@@ -62,8 +67,8 @@ function LoginForm() {
 
 export default function AdminLoginPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center p-6">
-      <div className="w-full max-w-md rounded-xl border border-border bg-surface p-8">
+    <div className="flex min-h-screen items-center justify-center p-4 sm:p-6">
+      <div className="w-full max-w-md rounded-xl border border-border bg-surface p-6 sm:p-8">
         <h1 className="text-2xl font-semibold text-white">Estatein Admin</h1>
         <p className="mt-2 text-sm text-text-muted">
           Sign in to manage properties and messages.

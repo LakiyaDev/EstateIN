@@ -30,7 +30,7 @@ export function TestimonialCard({
           </span>
         ))}
       </div>
-      <h3 className="mt-4 font-semibold text-white">{title}</h3>
+      <h3 className="mt-4 break-words font-semibold text-white">{title}</h3>
       <p className="mt-2 flex-1 text-sm leading-relaxed text-text-muted">
         {text}
       </p>
@@ -46,9 +46,9 @@ export function TestimonialCard({
             className="h-full w-full object-cover"
           />
         </div>
-        <div>
-          <p className="text-sm font-medium text-white">{name}</p>
-          <p className="text-xs text-text-muted">{location}</p>
+        <div className="min-w-0">
+          <p className="truncate text-sm font-medium text-white">{name}</p>
+          <p className="truncate text-xs text-text-muted">{location}</p>
         </div>
       </div>
     </article>

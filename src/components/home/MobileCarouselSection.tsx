@@ -3,7 +3,13 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Pagination } from "@/components/ui/Pagination";
 
-const DESKTOP_ITEMS_PER_PAGE = 3;
+type ScreenSize = "mobile" | "tablet" | "desktop";
+
+const ITEMS_PER_PAGE: Record<ScreenSize, number> = {
+  mobile: 1,
+  tablet: 2,
+  desktop: 3,
+};
 
 type MobileCarouselSectionProps<T> = {
   items: T[];
@@ -15,19 +21,31 @@ type MobileCarouselSectionProps<T> = {
   getKey?: (item: T, index: number) => string;
 };
 
-function useLargeScreen() {
-  const [isLargeScreen, setIsLargeScreen] = useState<boolean | null>(null);
+function useScreenSize() {
+  const [screenSize, setScreenSize] = useState<ScreenSize | null>(null);
 
   useEffect(() => {
-    const media = window.matchMedia("(min-width: 1024px)");
-    const update = () => setIsLargeScreen(media.matches);
+    const desktopMedia = window.matchMedia("(min-width: 1024px)");
+    const tabletMedia = window.matchMedia("(min-width: 768px)");
+    const update = () =>
+      setScreenSize(
+        desktopMedia.matches
+          ? "desktop"
+          : tabletMedia.matches
+            ? "tablet"
+            : "mobile",
+      );
 
     update();
-    media.addEventListener("change", update);
-    return () => media.removeEventListener("change", update);
+    desktopMedia.addEventListener("change", update);
+    tabletMedia.addEventListener("change", update);
+    return () => {
+      desktopMedia.removeEventListener("change", update);
+      tabletMedia.removeEventListener("change", update);
+    };
   }, []);
 
-  return isLargeScreen;
+  return screenSize;
 }
 
 export function MobileCarouselSection<T>({
@@ -40,27 +58,33 @@ export function MobileCarouselSection<T>({
   getKey,
 }: MobileCarouselSectionProps<T>) {
   const [current, setCurrent] = useState(0);
-  const isLargeScreen = useLargeScreen();
-  const itemsPerPage = isLargeScreen ? DESKTOP_ITEMS_PER_PAGE : 1;
+  const screenSize = useScreenSize();
+  const itemsPerPage = screenSize ? ITEMS_PER_PAGE[screenSize] : 1;
   const pageCount = Math.max(1, Math.ceil(items.length / itemsPerPage));
   const safePage = Math.min(current, pageCount - 1);
   const startIndex = safePage * itemsPerPage;
   const visibleItems = items.slice(startIndex, startIndex + itemsPerPage);
-  const paginationTotal = isLargeScreen ? pageCount : total;
+  const paginationTotal = screenSize === "mobile" ? total : pageCount;
 
   useEffect(() => {
     setCurrent((prev) => Math.min(prev, pageCount - 1));
-  }, [pageCount, isLargeScreen]);
+  }, [pageCount, screenSize]);
 
-  if (isLargeScreen === null) {
+  if (screenSize === null) {
     return <div className="mt-8 min-h-[320px]" aria-hidden />;
   }
 
   return (
     <>
-      {isLargeScreen ? (
-        <div className="mt-8 grid grid-cols-3 gap-6">
-          {renderDesktop
+      {screenSize !== "mobile" ? (
+        <div
+          className={
+            screenSize === "desktop"
+              ? "mt-8 grid grid-cols-3 gap-6"
+              : "mt-8 grid grid-cols-2 gap-5"
+          }
+        >
+          {renderDesktop && screenSize === "desktop"
             ? renderDesktop(visibleItems)
             : visibleItems.map((item, i) => (
                 <div key={getKey?.(item, startIndex + i) ?? startIndex + i}>

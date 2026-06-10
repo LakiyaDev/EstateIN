@@ -1,6 +1,7 @@
 {
   "name": "estatein-website",
   "version": "0.1.0",
+  "description": "Modern real estate marketing site with property listings, lead forms, and a Supabase-powered admin dashboard. Next.js 15 · React 19 · Tailwind CSS.",
   "private": true,
   "scripts": {
     "dev": "next dev -H 0.0.0.0",

@@ -52,7 +52,7 @@ export default async function AdminDashboardPage() {
 
       <DashboardCharts stats={stats} />
 
-      <div className="rounded-xl border border-border bg-surface p-6">
+      <div className="rounded-xl border border-border bg-surface p-4 sm:p-6">
         <div className="flex items-center justify-between">
           <h2 className="font-semibold text-white">Recent Messages</h2>
           <Link
@@ -69,18 +69,18 @@ export default async function AdminDashboardPage() {
             latest.map((msg) => (
               <div
                 key={msg.id}
-                className="flex items-center justify-between rounded-lg border border-border bg-background px-4 py-3"
+                className="flex items-center justify-between gap-3 rounded-lg border border-border bg-background px-4 py-3"
               >
-                <div>
-                  <p className="text-sm font-medium text-white">
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-medium text-white">
                     {msg.first_name} {msg.last_name}
                   </p>
-                  <p className="text-xs text-text-muted">
+                  <p className="truncate text-xs text-text-muted">
                     {msg.type}
                     {msg.property_name ? ` · ${msg.property_name}` : ""}
                   </p>
                 </div>
-                <span className="text-xs capitalize text-text-muted">
+                <span className="shrink-0 text-xs capitalize text-text-muted">
                   {msg.status}
                 </span>
               </div>

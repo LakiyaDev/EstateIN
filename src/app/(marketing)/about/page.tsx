@@ -164,7 +164,7 @@ export default function AboutPage() {
                   alt={member.name}
                   fill
                   className="object-cover"
-                  sizes="25vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
               </div>
               <div className="p-5">

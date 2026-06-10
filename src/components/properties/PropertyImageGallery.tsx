@@ -113,7 +113,7 @@ export function PropertyImageGallery({
               alt={`${title} — photo ${safeIndex + 1}`}
               fill
               className="object-cover"
-              sizes="50vw"
+              sizes="(max-width: 768px) 100vw, 50vw"
               quality={90}
               priority
             />
@@ -125,7 +125,7 @@ export function PropertyImageGallery({
               alt={`${title} — photo ${secondaryIndex + 1}`}
               fill
               className="object-cover"
-              sizes="50vw"
+              sizes="(max-width: 768px) 100vw, 50vw"
               quality={90}
             />
           </div>
@@ -137,12 +137,12 @@ export function PropertyImageGallery({
           <button
             type="button"
             onClick={goPrev}
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-text-muted transition hover:border-primary hover:text-white"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border text-text-muted transition hover:border-primary hover:text-white"
             aria-label="Previous image"
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
-          <div className="flex gap-1.5">
+          <div className="flex min-w-0 flex-wrap items-center justify-center gap-0.5">
             {slides.map((src, i) => (
               <button
                 key={src}
@@ -150,18 +150,22 @@ export function PropertyImageGallery({
                 onClick={() => goTo(i)}
                 aria-label={`Go to image ${i + 1}`}
                 aria-current={i === safeIndex ? "true" : undefined}
-                className={`h-2 w-2 rounded-full transition ${
-                  i === safeIndex
-                    ? "bg-primary"
-                    : "bg-border hover:bg-text-muted"
-                }`}
-              />
+                className="group flex h-7 w-7 items-center justify-center"
+              >
+                <span
+                  className={`h-2 w-2 rounded-full transition ${
+                    i === safeIndex
+                      ? "bg-primary"
+                      : "bg-border group-hover:bg-text-muted"
+                  }`}
+                />
+              </button>
             ))}
           </div>
           <button
             type="button"
             onClick={goNext}
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-border text-text-muted transition hover:border-primary hover:text-white"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border text-text-muted transition hover:border-primary hover:text-white"
             aria-label="Next image"
           >
             <ChevronRight className="h-4 w-4" />

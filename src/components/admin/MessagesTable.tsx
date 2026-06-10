@@ -140,13 +140,13 @@ export function MessagesTable({ messages }: { messages: DbMessage[] }) {
       </div>
 
       {selected && (
-        <div className="rounded-xl border border-border bg-surface p-6">
+        <div className="rounded-xl border border-border bg-surface p-4 sm:p-6">
           <div className="flex items-start justify-between gap-4">
-            <div>
-              <h3 className="text-lg font-semibold text-white">
+            <div className="min-w-0">
+              <h3 className="break-words text-lg font-semibold text-white">
                 {selected.first_name} {selected.last_name}
               </h3>
-              <p className="text-sm text-text-muted">
+              <p className="break-words text-sm text-text-muted">
                 {selected.email}
                 {selected.phone ? ` · ${selected.phone}` : ""}
               </p>
@@ -154,7 +154,7 @@ export function MessagesTable({ messages }: { messages: DbMessage[] }) {
             <button
               type="button"
               onClick={() => setSelected(null)}
-              className="text-sm text-text-muted hover:text-white"
+              className="shrink-0 text-sm text-text-muted hover:text-white"
             >
               Close
             </button>

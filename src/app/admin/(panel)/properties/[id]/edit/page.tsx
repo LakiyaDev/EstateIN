@@ -20,12 +20,12 @@ export default async function EditPropertyPage({ params }: Props) {
         >
           ← Back to properties
         </Link>
-        <h1 className="mt-2 text-2xl font-semibold text-white">
+        <h1 className="mt-2 break-words text-xl font-semibold text-white sm:text-2xl">
           Edit {property.title}
         </h1>
       </div>
 
-      <div className="rounded-xl border border-border bg-surface p-6">
+      <div className="rounded-xl border border-border bg-surface p-4 sm:p-6">
         <PropertyForm property={property} />
       </div>
     </div>

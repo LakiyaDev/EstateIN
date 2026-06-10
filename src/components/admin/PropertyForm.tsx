@@ -171,7 +171,7 @@ export function PropertyForm({ property }: PropertyFormProps) {
             type="checkbox"
             name="is_published"
             defaultChecked={property?.is_published ?? true}
-            className="accent-primary"
+            className="h-5 w-5 shrink-0 accent-primary"
           />
           Published on website
         </label>
@@ -180,7 +180,7 @@ export function PropertyForm({ property }: PropertyFormProps) {
             type="checkbox"
             name="is_featured"
             defaultChecked={property?.is_featured ?? true}
-            className="accent-primary"
+            className="h-5 w-5 shrink-0 accent-primary"
           />
           Featured on homepage
         </label>
@@ -188,7 +188,7 @@ export function PropertyForm({ property }: PropertyFormProps) {
 
       <button
         type="submit"
-        className="rounded-lg bg-primary px-6 py-3 text-sm font-medium text-white transition hover:bg-primary-hover"
+        className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-medium text-white transition hover:bg-primary-hover sm:w-auto"
       >
         {isEdit ? "Save Changes" : "Add Property"}
       </button>

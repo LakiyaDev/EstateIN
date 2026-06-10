@@ -3,6 +3,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Admin | Estatein",
+  robots: { index: false, follow: false },
 };
 
 export default function AdminRootLayout({

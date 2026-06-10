@@ -109,7 +109,7 @@ export default function ServicesPage() {
             description="Negotiating the best deal is an art. Our negotiation experts are skilled in securing favorable terms for both buyers and sellers."
           />
         </div>
-        <div className="mt-4 grid gap-4 lg:grid-cols-3">
+        <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <ServiceCard
             icon={ThumbsUp}
             title="Closing Success"
@@ -144,7 +144,7 @@ export default function ServicesPage() {
             description="Managing property finances can be complex. We provide transparent financial reporting and rent collection."
           />
         </div>
-        <div className="mt-4 grid gap-4 lg:grid-cols-3">
+        <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <ServiceCard
             icon={Shield}
             title="Legal Guardian"

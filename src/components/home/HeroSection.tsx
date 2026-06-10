@@ -38,16 +38,16 @@ export function HeroSection() {
                 Browse Properties
               </Link>
             </div>
-            <div className="mt-8 grid grid-cols-3 gap-2 sm:mt-10 sm:gap-3">
+            <div className="mt-8 grid grid-cols-1 gap-2 min-[400px]:grid-cols-3 sm:mt-10 sm:gap-3">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="min-w-0 rounded-xl border border-border bg-surface px-2 py-4 sm:px-4 sm:py-5"
+                  className="min-w-0 rounded-xl border border-border bg-surface px-3 py-4 sm:px-4 sm:py-5"
                 >
                   <p className="text-lg font-semibold text-white sm:text-2xl">
                     {stat.value}
                   </p>
-                  <p className="mt-1.5 text-[10px] leading-snug text-text-muted sm:text-xs">
+                  <p className="mt-1.5 text-[11px] leading-snug text-text-muted sm:text-xs">
                     {stat.label}
                   </p>
                 </div>

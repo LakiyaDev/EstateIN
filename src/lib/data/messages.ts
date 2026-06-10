@@ -1,9 +1,11 @@
+import { requireAdmin } from "@/lib/admin/auth";
 import { createClient } from "@/lib/supabase/server";
 import type { DashboardStats, DbMessage } from "@/lib/supabase/types";
 
 export { formatMessageStatus } from "@/lib/messages/utils";
 
 export async function getMessages(): Promise<DbMessage[]> {
+  await requireAdmin();
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("messages")
@@ -15,6 +17,7 @@ export async function getMessages(): Promise<DbMessage[]> {
 }
 
 export async function getMessageById(id: string): Promise<DbMessage | null> {
+  await requireAdmin();
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("messages")
@@ -27,6 +30,7 @@ export async function getMessageById(id: string): Promise<DbMessage | null> {
 }
 
 export async function getDashboardStats(): Promise<DashboardStats> {
+  await requireAdmin();
   const supabase = await createClient();
 
   const [propertiesRes, messagesRes] = await Promise.all([

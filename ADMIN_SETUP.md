@@ -79,6 +79,23 @@ Check the terminal for the port (use `3001` if `3000` is already in use).
 
 Your admin account (`sadeepal319@gmail.com`) is now linked in `admin_profiles`.
 
+## Security
+
+Admin authentication includes:
+
+| Control | Description |
+|---------|-------------|
+| **Admin allowlist** | Only users in `admin_profiles` can access `/admin` |
+| **Email verification** | Unconfirmed accounts cannot sign in |
+| **Rate limiting** | 5 failed logins per email+IP → 15-minute lockout |
+| **Generic errors** | Login failures do not reveal whether an email exists |
+| **Server-side guards** | All admin actions and data reads verify session via `getUser()` |
+| **Security headers** | `X-Frame-Options`, `X-Content-Type-Options`, etc. on admin routes |
+
+Apply migration `003_admin_auth_security.sql` for login rate limiting (or run `supabase db push`).
+
+**Recommended:** Enable MFA in Supabase Dashboard → **Authentication → Providers** for production admin accounts.
+
 ## Troubleshooting
 
 | Problem | Fix |

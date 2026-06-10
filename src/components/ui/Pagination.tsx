@@ -48,7 +48,7 @@ export function Pagination({
             type="button"
             onClick={onPrevious}
             disabled={!canGoPrevious}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-text-muted transition hover:border-text-muted hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-border text-text-muted transition hover:border-text-muted hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
             aria-label="Previous"
           >
             <ChevronLeft className="h-4 w-4" />
@@ -57,7 +57,7 @@ export function Pagination({
             type="button"
             onClick={onNext}
             disabled={!canGoNext}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-text-muted transition hover:border-text-muted hover:text-white disabled:cursor-not-allowed disabled:opacity-40 lg:bg-transparent"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-border bg-surface text-text-muted transition hover:border-text-muted hover:text-white disabled:cursor-not-allowed disabled:opacity-40 lg:bg-transparent"
             aria-label="Next"
           >
             <ChevronRight className="h-4 w-4" />

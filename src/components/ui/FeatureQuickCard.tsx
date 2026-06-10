@@ -46,7 +46,7 @@ export function FeatureQuickCard({
       <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-white shadow-[0_0_24px_rgba(112,59,247,0.35)] sm:h-12 sm:w-12">
         <Icon className="h-5 w-5" strokeWidth={1.75} />
       </span>
-      <p className="px-1 text-xs font-medium leading-snug text-white sm:text-sm">
+      <p className="break-words px-1 text-xs font-medium leading-snug text-white sm:text-sm">
         {title}
       </p>
     </Link>

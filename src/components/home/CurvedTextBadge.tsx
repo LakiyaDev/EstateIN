@@ -17,7 +17,9 @@ export function CurvedTextBadge({
       <div
         className={cn(
           "relative flex items-center justify-center rounded-full border border-border bg-background shadow-[0_0_0_6px_rgba(20,20,20,0.6)]",
-          isSmall ? "h-[108px] w-[108px]" : "h-[140px] w-[140px]",
+          isSmall
+            ? "h-[108px] w-[108px]"
+            : "h-[104px] w-[104px] sm:h-[140px] sm:w-[140px]",
         )}
       >
         <svg
@@ -45,7 +47,7 @@ export function CurvedTextBadge({
         <span
           className={cn(
             "relative flex items-center justify-center rounded-full border border-border bg-surface text-white",
-            isSmall ? "h-9 w-9" : "h-11 w-11",
+            isSmall ? "h-9 w-9" : "h-9 w-9 sm:h-11 sm:w-11",
           )}
         >
           <ArrowUpRight

@@ -1,5 +1,6 @@
 import type { Property } from "@/data/property-types";
 import { staticProperties } from "@/data/properties";
+import { requireAdmin } from "@/lib/admin/auth";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { createClient } from "@/lib/supabase/server";
 import type { DbProperty } from "@/lib/supabase/types";
@@ -93,6 +94,7 @@ export async function getPropertyBySlug(
 }
 
 export async function getAllPropertiesAdmin(): Promise<DbProperty[]> {
+  await requireAdmin();
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("properties")
@@ -107,6 +109,7 @@ export async function getAllPropertiesAdmin(): Promise<DbProperty[]> {
 export async function getPropertyByIdAdmin(
   id: string,
 ): Promise<DbProperty | null> {
+  await requireAdmin();
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("properties")

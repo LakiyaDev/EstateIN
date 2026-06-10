@@ -14,7 +14,7 @@ export default async function AdminMessagesPage() {
         <p className="mt-1 text-sm text-text-muted">
           Contact form and property inquiry submissions. Forward messages to the
           Estatein team at{" "}
-          <span className="text-white">{ESTATEIN_TEAM_EMAIL}</span>.
+          <span className="break-all text-white">{ESTATEIN_TEAM_EMAIL}</span>.
         </p>
       </div>
 

@@ -1,3 +1,4 @@
+import { applyAdminSecurityHeaders } from "@/lib/admin/security-headers";
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
@@ -36,7 +37,7 @@ export async function updateSession(request: NextRequest) {
     const url = request.nextUrl.clone();
     url.pathname = "/admin/login";
     url.searchParams.set("redirect", request.nextUrl.pathname);
-    return NextResponse.redirect(url);
+    return applyAdminSecurityHeaders(NextResponse.redirect(url));
   }
 
   if (isAdminRoute && user) {
@@ -46,22 +47,29 @@ export async function updateSession(request: NextRequest) {
       .eq("id", user.id)
       .maybeSingle();
 
+    const emailConfirmed = Boolean(user.email_confirmed_at);
+    const isAuthorizedAdmin = Boolean(adminProfile && emailConfirmed);
+
     if (isLoginPage) {
-      if (adminProfile) {
+      if (isAuthorizedAdmin) {
         const url = request.nextUrl.clone();
         url.pathname = "/admin";
-        return NextResponse.redirect(url);
+        return applyAdminSecurityHeaders(NextResponse.redirect(url));
       }
-      return supabaseResponse;
+      return applyAdminSecurityHeaders(supabaseResponse);
     }
 
-    if (!adminProfile) {
+    if (!isAuthorizedAdmin) {
       await supabase.auth.signOut();
       const url = request.nextUrl.clone();
       url.pathname = "/admin/login";
-      url.searchParams.set("error", "unauthorized");
-      return NextResponse.redirect(url);
+      url.searchParams.set("error", emailConfirmed ? "unauthorized" : "unverified");
+      return applyAdminSecurityHeaders(NextResponse.redirect(url));
     }
+  }
+
+  if (isAdminRoute) {
+    return applyAdminSecurityHeaders(supabaseResponse);
   }
 
   return supabaseResponse;

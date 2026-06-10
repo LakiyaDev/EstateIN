@@ -6,7 +6,7 @@ export function DashboardCharts({ stats }: { stats: DashboardStats }) {
 
   return (
     <div className="grid gap-6 lg:grid-cols-2">
-      <div className="rounded-xl border border-border bg-surface p-6">
+      <div className="rounded-xl border border-border bg-surface p-4 sm:p-6">
         <h3 className="font-semibold text-white">Messages by Type</h3>
         <p className="mt-1 text-xs text-text-muted">Contact, inquiry & simple forms</p>
         <div className="mt-6 space-y-4">
@@ -27,10 +27,10 @@ export function DashboardCharts({ stats }: { stats: DashboardStats }) {
         </div>
       </div>
 
-      <div className="rounded-xl border border-border bg-surface p-6">
+      <div className="rounded-xl border border-border bg-surface p-4 sm:p-6">
         <h3 className="font-semibold text-white">Messages Over Time</h3>
         <p className="mt-1 text-xs text-text-muted">Last 6 months activity</p>
-        <div className="mt-6 flex h-48 items-end gap-3">
+        <div className="mt-6 flex h-48 items-end gap-2 sm:gap-3">
           {stats.messagesByMonth.length === 0 ? (
             <p className="text-sm text-text-muted">No messages yet.</p>
           ) : (
@@ -47,7 +47,9 @@ export function DashboardCharts({ stats }: { stats: DashboardStats }) {
                   }}
                   title={`${count} messages`}
                 />
-                <span className="text-[10px] text-text-muted">{month}</span>
+                <span className="truncate text-[10px] text-text-muted sm:text-xs">
+                  {month}
+                </span>
               </div>
             ))
           )}

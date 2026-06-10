@@ -17,7 +17,7 @@ export default function NewPropertyPage() {
         </p>
       </div>
 
-      <div className="rounded-xl border border-border bg-surface p-6">
+      <div className="rounded-xl border border-border bg-surface p-4 sm:p-6">
         <PropertyForm />
       </div>
     </div>

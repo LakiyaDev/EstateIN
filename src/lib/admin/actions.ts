@@ -3,11 +3,21 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import {
+  getLoginRateLimitKey,
+  isLoginAllowed,
+  recordLoginAttempt,
+  requireAdminAction,
+} from "@/lib/admin/auth";
+import {
   ESTATEIN_TEAM_EMAIL,
   ESTATEIN_TEAM_NAME,
 } from "@/lib/supabase/config";
 import { createClient } from "@/lib/supabase/server";
 import type { MessageStatus, PropertyInsert } from "@/lib/supabase/types";
+
+const GENERIC_LOGIN_ERROR = "Invalid email or password.";
+const RATE_LIMIT_ERROR =
+  "Too many failed attempts. Please try again in 15 minutes.";
 
 function revalidateSite() {
   revalidatePath("/");
@@ -21,16 +31,52 @@ export async function signInAdmin(
   _prevState: { error: string },
   formData: FormData,
 ): Promise<{ error: string }> {
-  const email = String(formData.get("email") ?? "").trim();
+  const email = String(formData.get("email") ?? "").trim().toLowerCase();
   const password = String(formData.get("password") ?? "");
 
-  const supabase = await createClient();
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
-
-  if (error) {
-    return { error: error.message };
+  if (!email || !password) {
+    return { error: GENERIC_LOGIN_ERROR };
   }
 
+  const loginKey = await getLoginRateLimitKey(email);
+  const allowed = await isLoginAllowed(loginKey);
+  if (!allowed) {
+    return { error: RATE_LIMIT_ERROR };
+  }
+
+  const supabase = await createClient();
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
+
+  if (error || !data.user) {
+    await recordLoginAttempt(loginKey, false);
+    return { error: GENERIC_LOGIN_ERROR };
+  }
+
+  if (!data.user.email_confirmed_at) {
+    await supabase.auth.signOut();
+    await recordLoginAttempt(loginKey, false);
+    return {
+      error:
+        "Please confirm your email before signing in. Check your inbox for the verification link.",
+    };
+  }
+
+  const { data: adminProfile } = await supabase
+    .from("admin_profiles")
+    .select("id")
+    .eq("id", data.user.id)
+    .maybeSingle();
+
+  if (!adminProfile) {
+    await supabase.auth.signOut();
+    await recordLoginAttempt(loginKey, false);
+    return { error: GENERIC_LOGIN_ERROR };
+  }
+
+  await recordLoginAttempt(loginKey, true);
   redirect("/admin");
 }
 
@@ -41,6 +87,7 @@ export async function signOutAdmin() {
 }
 
 export async function forwardMessageToTeam(messageId: string) {
+  await requireAdminAction();
   const supabase = await createClient();
   const { error } = await supabase
     .from("messages")
@@ -61,6 +108,7 @@ export async function updateMessageStatus(
   messageId: string,
   status: MessageStatus,
 ) {
+  await requireAdminAction();
   const supabase = await createClient();
   const { error } = await supabase
     .from("messages")
@@ -73,6 +121,7 @@ export async function updateMessageStatus(
 }
 
 export async function deleteMessage(messageId: string) {
+  await requireAdminAction();
   const supabase = await createClient();
   const { error } = await supabase.from("messages").delete().eq("id", messageId);
 
@@ -104,6 +153,7 @@ function parseList(value: string): string[] {
 }
 
 export async function createProperty(formData: FormData) {
+  await requireAdminAction();
   const title = String(formData.get("title") ?? "").trim();
   const slug = String(formData.get("slug") ?? "").trim() || slugify(title);
   const price = Number(formData.get("price"));
@@ -138,6 +188,7 @@ export async function createProperty(formData: FormData) {
 }
 
 export async function updateProperty(id: string, formData: FormData) {
+  await requireAdminAction();
   const title = String(formData.get("title") ?? "").trim();
   const price = Number(formData.get("price"));
 
@@ -175,6 +226,7 @@ export async function updateProperty(id: string, formData: FormData) {
 }
 
 export async function deleteProperty(id: string) {
+  await requireAdminAction();
   const supabase = await createClient();
   const { error } = await supabase.from("properties").delete().eq("id", id);
 
@@ -185,6 +237,7 @@ export async function deleteProperty(id: string) {
 }
 
 export async function togglePropertyPublished(id: string, published: boolean) {
+  await requireAdminAction();
   const supabase = await createClient();
   const { error } = await supabase
     .from("properties")

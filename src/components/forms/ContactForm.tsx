@@ -315,7 +315,7 @@ export function ContactForm({
             required
             checked={form.agreed_terms}
             onChange={(e) => updateField("agreed_terms", e.target.checked)}
-            className="mt-1 accent-primary"
+            className="mt-0.5 h-5 w-5 shrink-0 accent-primary"
           />
           <span>
             I agree with{" "}
