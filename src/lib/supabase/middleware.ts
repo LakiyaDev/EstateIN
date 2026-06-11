@@ -2,6 +2,19 @@ import { applyAdminSecurityHeaders } from "@/lib/admin/security-headers";
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
+/**
+ * Redirects must carry over any auth cookies Supabase refreshed during this
+ * request, otherwise the browser keeps a stale (already-rotated) token and
+ * the session randomly drops.
+ */
+function redirectWithAuthCookies(url: URL, supabaseResponse: NextResponse) {
+  const redirect = NextResponse.redirect(url);
+  supabaseResponse.cookies.getAll().forEach((cookie) => {
+    redirect.cookies.set(cookie);
+  });
+  return redirect;
+}
+
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });
 
@@ -37,7 +50,9 @@ export async function updateSession(request: NextRequest) {
     const url = request.nextUrl.clone();
     url.pathname = "/admin/login";
     url.searchParams.set("redirect", request.nextUrl.pathname);
-    return applyAdminSecurityHeaders(NextResponse.redirect(url));
+    return applyAdminSecurityHeaders(
+      redirectWithAuthCookies(url, supabaseResponse),
+    );
   }
 
   if (isAdminRoute && user) {
@@ -54,7 +69,9 @@ export async function updateSession(request: NextRequest) {
       if (isAuthorizedAdmin) {
         const url = request.nextUrl.clone();
         url.pathname = "/admin";
-        return applyAdminSecurityHeaders(NextResponse.redirect(url));
+        return applyAdminSecurityHeaders(
+          redirectWithAuthCookies(url, supabaseResponse),
+        );
       }
       return applyAdminSecurityHeaders(supabaseResponse);
     }
@@ -64,7 +81,9 @@ export async function updateSession(request: NextRequest) {
       const url = request.nextUrl.clone();
       url.pathname = "/admin/login";
       url.searchParams.set("error", emailConfirmed ? "unauthorized" : "unverified");
-      return applyAdminSecurityHeaders(NextResponse.redirect(url));
+      return applyAdminSecurityHeaders(
+        redirectWithAuthCookies(url, supabaseResponse),
+      );
     }
   }
 
