@@ -515,14 +515,6 @@ Works on any Node.js host. For **Vercel**:
 
 ---
 
-## License
-
-© LakiyaDeV. All rights reserved.
-
-For licensing questions, open an issue on the [repository](https://github.com/LakiyaDev/EstateIN).
-
----
-
 <div align="center">
 
 <a href="https://github.com/LakiyaDev/EstateIN">
@@ -535,5 +527,5 @@ For licensing questions, open an issue on the [repository](https://github.com/La
 </a>
 
 Built for everyone searching for a place to call home — and the teams who help them find it.
-
+<center>© LakiyaDeV. All rights reserved.</center>
 </div>
